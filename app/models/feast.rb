@@ -1,0 +1,2 @@
+class Feast < ApplicationRecord
+end
