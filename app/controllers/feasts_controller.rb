@@ -6,6 +6,7 @@ class FeastsController < ApplicationController
   end
 
   def home
+    
   end
 
   def index
