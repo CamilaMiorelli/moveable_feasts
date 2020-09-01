@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'feasts/cancel'
-  get 'feasts/show'
-  get 'feasts/home'
-  get 'feasts/index'
-  get 'feasts/create'
   devise_for :users
   root to: 'feasts#home'
   resources :feasts do
