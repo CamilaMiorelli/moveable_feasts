@@ -34,10 +34,8 @@ ActiveRecord::Schema.define(version: 2020_08_31_144004) do
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.datetime "start_at"
     t.datetime "end_at"
-    t.index ["user_id"], name: "index_feasts_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -88,7 +86,6 @@ ActiveRecord::Schema.define(version: 2020_08_31_144004) do
   end
 
   add_foreign_key "chatrooms", "feasts"
-  add_foreign_key "feasts", "users"
   add_foreign_key "messages", "users"
   add_foreign_key "reservations", "feasts"
   add_foreign_key "reservations", "users"
