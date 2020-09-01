@@ -2,6 +2,10 @@ class FeastsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show, :home ]
   
   def cancel
+    @feast = Feast.find(params[:id])
+    @feast.status = "cancelled"
+    @feast.save!
+    redirect_to feast_path(@feast)
   end
 
   def show
@@ -18,6 +22,10 @@ class FeastsController < ApplicationController
 
   def create
     @feast = Feast.new(strong_feasts_params)
+  end
+
+  def new
+    @feast = Feast.new
   end
 
   private
