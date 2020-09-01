@@ -23,6 +23,10 @@ class FeastsController < ApplicationController
     @feast = Feast.new(strong_feasts_params)
   end
 
+  def new
+    @feast = Feast.new
+  end
+
   private
   
   def strong_feasts_params
