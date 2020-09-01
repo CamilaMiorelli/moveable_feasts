@@ -30,7 +30,7 @@ french = Feast.new(title: "Thursday Night Patisserie", description: "I am an ama
 french.save!
 end
 
-puts "#{Feast.count} books created"
+puts "#{Feast.count} feasts created"
 puts "#{User.count} users created"
 puts "--------------------------"
 puts "End time is #{Time.now}"
