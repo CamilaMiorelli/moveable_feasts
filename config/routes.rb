@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'reservations/create'
-  get 'reservations/new'
-  get 'reservations/show'
-  get 'reservations/update'
   devise_for :users
   root to: 'feasts#home'
   resources :feasts do
