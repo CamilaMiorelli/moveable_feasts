@@ -1,5 +1,5 @@
 class Feast < ApplicationRecord
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   has_one :chatroom
   belongs_to :user
   validates :title, length: { minimum: 3 }
