@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #F1EBE4;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +9,16 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-logo a {
+  font-family: 'La Belle Aurore', cursive;
+  font-size: 30px;
+  text-decoration: none;
+  color: #50514F;
+}
+
+.logo-first-letter {
+  font-size: 40px;
+  color: #DF9B74;
 }

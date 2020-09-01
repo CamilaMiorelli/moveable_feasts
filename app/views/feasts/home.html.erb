@@ -1,13 +1,9 @@
 <div class="container" >
-    <%= form_tag feasts_path, :class => "search-bar d-flex", method: :get do %>
-        <%= text_field_tag :query, params[:query], class: "form-control ", placeholder: "feasts" %>
-        <%= datetime_field_tag :query, params[:query], class: "form-control " %>
-        <%= submit_tag "Search", class: "" %>
-    <% end %>
+  <%= render 'shared/banner' %>
 </div>
 
   <%# <div class=""> %>
-    <%# @three_feasts.each do |book| %>
-    <%#= render "", book: book %>
+    <%# @three_feasts.each do |feast| %>
+    <%#= render "", feast: feast %>
     <%# end %>
-  <%# </div> %>
+    <%# </div> %>

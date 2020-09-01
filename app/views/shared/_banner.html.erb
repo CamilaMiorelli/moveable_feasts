@@ -1,0 +1,18 @@
+<div class="default-container">
+ <div class="side-banner">
+ <div>
+   <h2 class= "side-baner-header">Moveable Feasts</h2>
+  <%= image_tag "side_banner.jpg", alt: "Side banner", class: 'side-banner-img' %>
+  </div>
+ </div>
+ <div class="banner-container">
+  <h1 class="banner-header">Moveable Feasts</h1>
+  <div class="banner-search">
+    <%= form_tag feasts_path, :class => "search-bar d-flex", method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "form-control ", placeholder: "Find your Feast", class: "feast-search" %>
+          <%= datetime_field_tag :query, params[:query], class: "form-control", class: "feast-time" %>
+          <%= button_tag "", class: "button-search" %>
+      <% end %>
+    </div>
+ </div>
+</div>

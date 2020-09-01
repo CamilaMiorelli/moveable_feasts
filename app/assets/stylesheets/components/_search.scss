@@ -1,0 +1,36 @@
+.banner-search {
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.feast-search {
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  box-shadow: none;
+  border: none;
+}
+
+.button-search {
+  padding: 10px;
+  border-radius: 0 10px 10px 0;
+  box-shadow: none;
+  border: none;
+  font-weight: bold;
+}
+
+.button-search:after {
+ content: "\f002";
+ font-family: "Font Awesome 5 Free";
+ font-weight: 900;
+ margin: 10px;
+}
+
+.feast-time {
+  padding: 10px;
+  box-shadow: none;
+  border: none;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
