@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="container" >
+        <%= form_tag feasts_path, :class => "search-bar d-flex", method: :get do %>
+            <%= text_field_tag :query, params[:query], class: "form-control ", placeholder: "feasts" %>
+            <%= datetime_field_tag :query, params[:query], class: "form-control " %>
+            <%= datetime_field_tag :query, params[:query], class: "form-control " %>
+            <%= submit_tag "Search", class: "" %>
+        <% end %>
+    </div>
+
+    <%# <div> %>
+        <%# @feasts.each do |feast| %>
+            <%# <div> %>
+                <%# <div> %>
+                <%#= render "", feast: feast %>
+                <%# </div> %>
+            <%# </div> %>
+        <%# end %>
+    <%# </div> %>
+</div>
