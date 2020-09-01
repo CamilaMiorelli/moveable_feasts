@@ -2,7 +2,7 @@ class Feast < ApplicationRecord
   has_many :reservations
   has_one :chatroom
   belongs_to :user
-  validates :title, length: { minimum: 10 }
+  validates :title, length: { minimum: 3 }
   validates :description, length: { minimum: 10 }
   validates :meal_type, length: { minimum: 3 }
   validates :guest_limit, length: { minimum: 1 }
