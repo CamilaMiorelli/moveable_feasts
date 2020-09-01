@@ -36,5 +36,3 @@ puts "--------------------------"
 puts "End time is #{Time.now}"
 puts "--------------------------"
 puts 'Finished!'
-© 2020 GitHub, Inc.
-puts 'Finished!'
