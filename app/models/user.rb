@@ -8,5 +8,8 @@ class User < ApplicationRecord
   has_many :reservations
   has_many :reviews
   has_many :messages
-  
+  validates :first_name, length: { minimum: 1 }
+  validates :last_name, length: { minimum: 1 }
+  validates :bio, length: { minimum: 20 }
+  validates :gender, length: { minimum: 1 }
 end
