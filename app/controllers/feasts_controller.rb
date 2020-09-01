@@ -6,7 +6,8 @@ class FeastsController < ApplicationController
   end
 
   def home
-    
+    @feasts = Feast.all
+
   end
 
   def index
