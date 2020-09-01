@@ -4,11 +4,11 @@ class FeastsController < ApplicationController
   end
 
   def show
+    @feast = Feast.find(params[:id])
   end
 
   def home
     @feasts = Feast.all
-
   end
 
   def index
