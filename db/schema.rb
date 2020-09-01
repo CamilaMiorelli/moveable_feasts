@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_144004) do
+ActiveRecord::Schema.define(version: 2020_09_01_095107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_144004) do
     t.string "meal_type"
     t.integer "guest_limit"
     t.float "price"
-    t.boolean "status"
+    t.boolean "available"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
