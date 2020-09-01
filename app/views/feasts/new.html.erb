@@ -1,0 +1,17 @@
+<h2>Add your book</h2>
+<%= simple_form_for @feast do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :meal_type %>
+    <%= f.input :guest_limit %>
+    <%= f.input :price %>
+    <%= f.input :available %>
+    <%= f.input :address %>
+    <%= f.input :start_at %>
+    <%= f.input :end_at %>
+
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit %>
+   
+<% end %>
+  
