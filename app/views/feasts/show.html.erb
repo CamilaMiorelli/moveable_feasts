@@ -1,0 +1,31 @@
+<%# if @feast.photo.attached? %>
+    <%#= cl_image_tag @feast.photo.key, height: 150, width: 75, crop: :fill %>
+<%# end %>
+
+<%# method for definig avatar is not yet available. %>
+
+<%# if @feast.photo.attached? %>
+    <%#= cl_image_tag @feast.photo.key, height: 150, width: 75, crop: :fill %>
+<%# end %>
+
+
+<p><%= @feast.title %></p>
+</br>
+<p><%= @feast.description %></p>
+</br>
+<p><%= @feast.meal_type %></p>
+</br>
+<p><%= @feast.price %></p>
+</br>
+<%# Method for defining distance to the party is not yet available. %>
+<p><%= @feast.address %></p>
+</br>
+
+<p><%= @feast.start_at %></p>
+</br>
+<p><%= @feast.end_at %></p>
+</br>
+<p><%= @feast.available %></p>
+</br>
+<p><%= @feast.status %></p>
+
