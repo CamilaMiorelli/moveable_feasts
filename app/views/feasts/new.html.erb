@@ -7,8 +7,8 @@
     <%= f.input :price %>
     <%= f.input :available %>
     <%= f.input :address %>
-    <%= f.input :start_at %>
-    <%= f.input :end_at %>
+    <%= f.input :start_at, as: :datetime %>
+    <%= f.input :end_at, as: :datetime %>
 
     <%= f.input :photo, as: :file %>
     <%= f.button :submit %>
