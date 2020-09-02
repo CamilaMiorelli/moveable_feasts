@@ -10,3 +10,4 @@ class MessagesController < ApplicationController
           render "chatrooms/show"
         end
     end
+end
