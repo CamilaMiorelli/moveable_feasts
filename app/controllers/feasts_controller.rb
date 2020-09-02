@@ -1,6 +1,6 @@
 class FeastsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show, :home ]
-  
+
   def cancel
     @feast = Feast.find(params[:id])
     @feast.status = "cancelled"
@@ -14,15 +14,26 @@ class FeastsController < ApplicationController
   end
 
   def home
-    @feasts = Feast.all
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR description ILIKE :query"
+      @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @feasts = Feast.all
+    end
   end
 
   def index
-    @feasts = Feast.all
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR description ILIKE :query"
+      @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @feasts = Feast.all
+    end
   end
 
   def create
     @feast = Feast.new(strong_feasts_params)
+    @feast.save!
   end
 
   def new
@@ -35,8 +46,13 @@ class FeastsController < ApplicationController
   end
 
   private
-  
+
   def strong_feasts_params
+<<<<<<< HEAD
     params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price, :address, :start_at, :id, :put, :status, reservations: :status)
+=======
+    params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price, :address, :start_at, :photo)
+
+>>>>>>> master
   end
 end

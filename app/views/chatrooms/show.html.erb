@@ -1,0 +1,10 @@
+<h1>#<%= @chatroom.feast.title %></h1>
+<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+  <% @chatroom.messages.each do |message| %>
+    <%= render "message", message: message %>
+  <% end %>
+</div>
+<%= simple_form_for [ @message ], url: feast_chatroom_messages_url(params[:feast_id]), remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.feast.title}" %>
+  <%= f.submit :submit %>
+<% end %>

@@ -9,8 +9,12 @@ class Feast < ApplicationRecord
   validates :address, presence: true
   validates :start_at, presence: true
   validates :end_at, presence: true
+<<<<<<< HEAD
 
   def host?(user)
     self.user == user
   end
+=======
+  has_one_attached :photo
+>>>>>>> master
 end
