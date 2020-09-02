@@ -32,6 +32,7 @@ class FeastsController < ApplicationController
 
   def create
     @feast = Feast.new(strong_feasts_params)
+    @feast.save!
   end
 
   def new
