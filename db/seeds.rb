@@ -38,6 +38,9 @@ MEALS=["indian", "cuban", "casual", "picnic", "french"]
     feast.photo.attach(io: file, filename: 'Feast image', content_type: 'image/jpg')
     feast.save!
 
+    5.times do
+      Reservation.create(number_of_guests: rand(0..5), status: "pending", user: user, feast: feast)
+    end
   # cuban = Feast.new(
   #   title: "Camila's Lechon", description: "I will be making lechon asado for new friends!", user: user,
   #   meal_type: "Meat dish", guest_limit: 8, price: 20, available: true, address: "Gerard Doustraat 22, Amsterdam", start_at:(DateTime.new), end_at:(DateTime.new), photo: "https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599051859/quimbombo_nkrlhv.jpg")
