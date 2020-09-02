@@ -6,8 +6,10 @@ const initChatroomCable = () => {
     const id = messagesContainer.dataset.chatroomId;
 
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
-      received(data) {
-        console.log(data); // called when data is broadcast in the cable
+        
+    received(data) {
+        messagesContainer.insertAdjacentHTML('afterbegin', data);
+        // called when data is broadcast in the cable
       },
     });
   }
