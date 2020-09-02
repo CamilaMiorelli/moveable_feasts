@@ -10,4 +10,10 @@ class MessagesController < ApplicationController
           render "chatrooms/show"
         end
     end
-end
+    
+    private
+    
+    def strong_messages_params
+        params.require(:message).permit(:content)
+    end
+end 
