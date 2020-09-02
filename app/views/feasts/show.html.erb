@@ -36,8 +36,8 @@
 
         <% @reservations.each do |reservation| %>
         
-            <% reservation.user.first_name %>
-            <% reservation.user.last_name %>
+            <%= reservation.user.first_name %>
+            <%= reservation.user.last_name %>
             <% if reservation.status == "pending" %>
                 <%= button_to "Accept", accept_feast_reservation_path(reservation.feast, reservation), method: :put %>
                 <%= button_to "Decline", decline_feast_reservation_path(reservation.feast, reservation), method: :put %>

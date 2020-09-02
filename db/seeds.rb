@@ -39,6 +39,8 @@ MEALS=["indian", "cuban", "casual", "picnic", "french"]
     feast.save!
 
     5.times do
+      reservation_user = User.new(first_name: "hello", last_name: "world", email: "#{Faker::Name.name}@a.com", password: 123456, bio:"Heyyy this is my bio I am cool and i like to eat and thats about it how are you", gender: ["female", "male"].sample)
+      reservation_user.save
       Reservation.create(number_of_guests: rand(0..5), status: "pending", user: user, feast: feast)
     end
   # cuban = Feast.new(
