@@ -12,12 +12,10 @@ class User < ApplicationRecord
   validates :last_name, length: { minimum: 1 }
   validates :bio, length: { minimum: 20 }
   validates :gender, length: { minimum: 1 }
-<<<<<<< HEAD
-
+  has_one_attached :photo
+  
   def host?(feast)
     feast.user == self
   end
-=======
-  has_one_attached :photo
->>>>>>> master
+  
 end
