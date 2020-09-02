@@ -4,3 +4,32 @@
   display: grid;
   grid-template-columns: 350px 1fr;
 }
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 50px;
+  grid-gap: 16px;
+}
+
+@media(max-width: 575px) {
+  .testimonials-container, .default-container {
+    grid-template-columns: 1fr;
+    position: relative;
+  }
+  .testimonial-avatar {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+  }
+}
+
+@media(max-width: 768px) {
+  .testimonials-container, .default-container {
+    grid-template-columns: 1fr;
+    margin-bottom: 40px;
+  }
+}
+
