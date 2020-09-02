@@ -10,6 +10,7 @@ class FeastsController < ApplicationController
 
   def show
     @feast = Feast.find(params[:id])
+    @reservations = @feast.reservations
   end
 
   def home
@@ -28,10 +29,14 @@ class FeastsController < ApplicationController
     @feast = Feast.new
   end
 
+  def update
+    @feast = Feast.find(params[:id])
+    @feast.save(strong_feasts_params)
+  end
+
   private
   
   def strong_feasts_params
-    params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price, :address, :start_at)
-
+    params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price, :address, :start_at, :id, :put, :status, reservations: :status)
   end
 end

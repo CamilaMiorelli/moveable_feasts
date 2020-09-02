@@ -28,18 +28,26 @@
 <p><%= @feast.available %></p>
 </br>
 
-<% if current_user.host?(@feast) %>
-    <% if params[:action] == "incoming_reservations" %>
-        <% unless @reservation.status == "Accepted" || @reservation.status == "Declined" %>
-            <%= button_to "Accept", feast_path(@reservation.feast, @reservation), method: :put %>
-            <%= button_to "Decline", feast_path(@reservation.feast, @reservation), method: :put %>
-        <% else %>
-            <%= @reservation.status %>
-        <% end %>
-    <% end %>
-<% else %>
- <%# here will be reservation button, after clicking it will turn pending. %>
-    <%# <strong>= @reservation.status</strong> %>
-<% end %>
+<div class="container">
+<%# raise %>
 
+    <% if current_user.host?(@feast) %>
+        <% @reservation.user.first_name %>
+        <% @reservations.each do |reservation| %>
+        <% raise %>
+            
+            <% if reservation.status == "pending" %>
+                <%= button_to "Accept", accept_feast_reservation_path(reservation.feast, reservation), method: :put %>
+                <%= button_to "Decline", decline_feast_reservation_path(reservation.feast, reservation), method: :put %>
+                </br>
+            <% else %>
+                <%= reservation.status %>
+                </br>
+            <% end %>
+        <% end %>
+    <% else %>
+    <%# here will be reservation button, after clicking it will turn pending. %>
+    <strong><%= @reservation.status %></strong>
+    <% end %>
+</div>
 

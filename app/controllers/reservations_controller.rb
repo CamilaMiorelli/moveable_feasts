@@ -35,14 +35,14 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @reservation.status = "Accepted"
     @reservation.save
-    redirect_to book_reservation_path(@reservation.feast, @reservation)
+    redirect_to feast_path(@reservation.feast, @reservation)
   end
 
   def decline
     @reservation = Reservation.find(params[:id])
     @reservation.status = "Declined"
     @reservation.save
-    redirect_to book_reservation_path(@reservation.feast, @reservation)
+    redirect_to feast_path(@reservation.feast, @reservation)
   end
 
   # def available?
