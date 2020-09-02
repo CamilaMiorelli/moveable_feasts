@@ -12,4 +12,8 @@ class User < ApplicationRecord
   validates :last_name, length: { minimum: 1 }
   validates :bio, length: { minimum: 20 }
   validates :gender, length: { minimum: 1 }
+
+  def host?(feast)
+    feast.user == self
+  end
 end
