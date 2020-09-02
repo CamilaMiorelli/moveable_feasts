@@ -9,4 +9,5 @@ class Feast < ApplicationRecord
   validates :address, presence: true
   validates :start_at, presence: true
   validates :end_at, presence: true
+  has_one_attached :photo
 end

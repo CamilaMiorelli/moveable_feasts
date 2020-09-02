@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: 'feasts#home'
   resources :feasts do
     resources :reservations, only: [ :new, :create, :show, :update]
-    resources :chatroom, only: [ :show ]
+    resource :chatroom, only: :show  do
+    resources :messages, only: :create
   end
-  # resources :reviews
-  # resources :messages
+  end
 end
