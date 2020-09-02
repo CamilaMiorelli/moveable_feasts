@@ -41,7 +41,7 @@ class FeastsController < ApplicationController
   private
 
   def strong_feasts_params
-    params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price, :address, :start_at)
+    params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price, :address, :start_at, :photo)
 
   end
 end
