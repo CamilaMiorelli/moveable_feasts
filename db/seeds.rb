@@ -14,7 +14,7 @@ Reservation.destroy_all
 puts 'Creating a fake user...'
 user = User.create(first_name: "Camila", last_name: "Miorelli", email: "a@a.com", password: 123456, bio:"Heyyy this is my bio I am cool and i like to eat and thats about it how are you", gender: "female")
 
-ADDRESSES=["Reguilersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam"]
+ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam"]
 MEALS=["indian", "cuban", "casual", "picnic", "french"]
 
 5.times do
