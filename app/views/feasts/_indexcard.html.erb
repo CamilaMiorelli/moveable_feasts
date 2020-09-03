@@ -1,0 +1,18 @@
+<div class="card">
+  <%= link_to feast_path(feast) do %>
+    <% if feast.photo.present? %>
+      <%= cl_image_tag feast.photo.key, height: 150, width: 75, crop: :fill %>
+    <% end %>
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"> <%= feast.title %> </h5>
+    <p class="card-text"> <%= feast.description %></p>
+    <p class="card-text"> <%= feast.meal_type %></p>
+    <p class="card-text"> <%= feast.guest_limit %></p>
+    <p class="card-text"> <%= feast.price %></p>
+    <p class="card-text"> <%= feast.address %></p>
+    <p class="card-text"> <%= feast.start_at %></p>
+    <p class="card-text"> <%= feast.status %></p>
+    <span class="badge">availabile now</span>
+  </div>
+</div>

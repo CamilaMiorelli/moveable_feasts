@@ -7,13 +7,13 @@
         <% end %>
     </div>
 
-    <%# <div> %>
-        <%# @feasts.each do |feast| %>
-            <%# <div> %>
-                <%# <div> %>
-                <%#= render "", feast: feast %>
-                <%# </div> %>
-            <%# </div> %>
-        <%# end %>
-    <%# </div> %>
+    <div class="container">
+        <% @feasts.each do |feast| %>
+             <div class="index-grid">
+                <div class="card">
+                <%= render "indexcard", feast: feast %>
+                </div> 
+            </div> 
+        <% end %>
+    </div>
 </div>

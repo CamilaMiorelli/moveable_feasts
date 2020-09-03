@@ -13,8 +13,9 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @feast = Feast.find(params[:feast_id])
     @reservation.feast = @feast
+    @reservation.user = current_user
      if @reservation.save
-      redirect_to feast_reservation_path(@feast, @reservation)
+      redirect_to feast_path(@feast, @reservation)
       flash.notice = "Your reservation has been sent to the host."
     else
       render :new
@@ -53,6 +54,6 @@ class ReservationsController < ApplicationController
 private
 
   def reservation_params
-    params.require(:reservation).permit(:status, :number_of_guests)
+    params.require(:reservation).permit(:status, :number_of_guests, :comment)
   end
 end

@@ -8,7 +8,6 @@
     <%#= cl_image_tag @feast.photo.key, height: 150, width: 75, crop: :fill %>
 <%# end %>
 
-
 <p><%= @feast.title %></p>
 </br>
 <p><%= @feast.description %></p>
@@ -25,31 +24,66 @@
 </br>
 <p><%= @feast.end_at %></p>
 </br>
-<p><%= @feast.available %></p>
-</br>
+<%= @feast.available %>
+        </br>
+        </br>
 
-<div class="container">
-<%# raise %>
+<% if current_user.present? %>
 
     <% if current_user.host?(@feast) %>
-        <%# raise %>
 
         <% @reservations.each do |reservation| %>
-        
             <%= reservation.user.first_name %>
             <%= reservation.user.last_name %>
+            <%= reservation.comment %>
             <% if reservation.status == "pending" %>
                 <%= button_to "Accept", accept_feast_reservation_path(reservation.feast, reservation), method: :put %>
                 <%= button_to "Decline", decline_feast_reservation_path(reservation.feast, reservation), method: :put %>
                 </br>
             <% else %>
-                <%= reservation.status %>
+                 <%= reservation.status %>
                 </br>
             <% end %>
         <% end %>
-    <% else %>
-    <%# here will be reservation button, after clicking it will turn pending. %>
-    <strong><%= @reservation.status %></strong>
-    <% end %>
-</div>
 
+    <% else %>
+
+        <% if @reservation %>
+            <strong><%= @reservation.status if !@reservation.nil? %></strong>
+
+        <% else %>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reservation-popup">
+                Reserve
+            </button>
+
+
+        <% end %>
+    
+
+    <% end %>
+
+<% else %>
+        <%= button_to "Reserve", new_user_session_path(@user) %>
+<% end %>
+
+<div class="modal" tabindex="-1" role="dialog" id="reservation-popup">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Any questions for the host?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <%= simple_form_for [@feast, Reservation.new] do |f| %>
+                <div class="modal-body">
+                    <%= f.input :comment %>
+                    </div>
+                    <div class="modal-footer">
+                    <%= f.submit "Submit Reservation" %>
+                    </div>
+            <% end %>    
+        </div>
+    </div>
+</div>

@@ -11,6 +11,7 @@ class FeastsController < ApplicationController
   def show
     @feast = Feast.find(params[:id])
     @reservations = @feast.reservations
+    @reservation = current_user.reservations.find_by(feast: @feast)
   end
 
   def home
