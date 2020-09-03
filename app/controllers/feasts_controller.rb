@@ -9,7 +9,7 @@ class FeastsController < ApplicationController
   end
 
   def show
-    @feast = Feast.find(params[:id])
+    @feast = Feast.find(params[:id]).includes(:reservations)
   end
 
   def home
