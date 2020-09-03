@@ -3,6 +3,10 @@
   &:hover {
     opacity: 1;
   }
+   position:absolute;
+    left: 15px;
+    bottom: 30px;
+    z-index:1;
 }
 
 .feast-search {
