@@ -27,11 +27,11 @@ class FeastsController < ApplicationController
       @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
     else
       @feasts = Feast.all
-      @markers = @feasts.geocoded.map do |feast|
-      {
-        lat: feast.latitude
-        lng: feast.longitude
-      }
+         @markers = @feasts.geocoded.map do |feast|
+        {
+          lat: feast.latitude,
+          lng: feast.longitude
+        }
       end
     end
   end
