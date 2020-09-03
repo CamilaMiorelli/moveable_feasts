@@ -28,6 +28,13 @@ class FeastsController < ApplicationController
     else
       @feasts = Feast.all
     end
+
+    @markers = @feasts.geocoded.map do |feast|
+      {
+        lat: feast.latitude
+        lng: feast.longitude
+      }
+    end
   end
 
   def create
