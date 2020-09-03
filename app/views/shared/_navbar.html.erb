@@ -13,10 +13,12 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "New event", "#", class: "nav-link" %>
+          <%= link_to "chatrooms", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "chatrooms", "#", class: "nav-link" %>
+          <%= link_to "#", class: "nav-link dropdown" do %>
+            <span><i class="fas fa-globe-europe"></i></span>
+          <% end %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
