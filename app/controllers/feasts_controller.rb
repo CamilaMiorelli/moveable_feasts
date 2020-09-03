@@ -9,7 +9,13 @@ class FeastsController < ApplicationController
   end
 
   def show
+    @feast = Feast.find(params[:id])
     @feast = Feast.find(params[:id]).includes(:reservations)
+    @markers =
+        {
+          lat: @feast.latitude,
+          lng: @feast.longitude
+        }
   end
 
   def home
@@ -27,6 +33,12 @@ class FeastsController < ApplicationController
       @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
     else
       @feasts = Feast.all
+      @markers = @feasts.geocoded.map { |feast|
+        {
+          lat: feast.latitude,
+          lng: feast.longitude
+        }
+      }
     end
   end
 
