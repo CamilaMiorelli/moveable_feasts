@@ -9,16 +9,13 @@ class FeastsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
     @feast = Feast.find(params[:id])
+    @feast = Feast.find(params[:id]).includes(:reservations)
     @markers =
         {
           lat: @feast.latitude,
           lng: @feast.longitude
         }
-=======
-    @feast = Feast.find(params[:id]).includes(:reservations)
->>>>>>> c12803f1f382e66c4a2b2a9952b29f1c7e22a55c
   end
 
   def home
