@@ -22,18 +22,17 @@ class FeastsController < ApplicationController
   end
 
   def index
-    raise
     if params[:query].present?
       sql_query = "title ILIKE :query OR description ILIKE :query"
       @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
-    end
     else
       @feasts = Feast.all
-            @markers = @feasts.geocoded.map do |feast|
+      @markers = @feasts.geocoded.map do |feast|
       {
         lat: feast.latitude
         lng: feast.longitude
       }
+      end
     end
   end
 
