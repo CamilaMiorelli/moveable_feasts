@@ -13,4 +13,9 @@ class User < ApplicationRecord
   validates :bio, length: { minimum: 20 }
   validates :gender, length: { minimum: 1 }
   has_one_attached :photo
+  
+  def host?(feast)
+    feast.user == self
+  end
+  
 end

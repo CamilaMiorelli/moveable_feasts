@@ -10,6 +10,8 @@ class FeastsController < ApplicationController
 
   def show
     @feast = Feast.find(params[:id])
+    @reservations = @feast.reservations
+    @reservation = current_user.reservations.find_by(feast: @feast)
     @feast = Feast.find(params[:id]).includes(:reservations)
     @markers =
         {
@@ -49,6 +51,11 @@ class FeastsController < ApplicationController
 
   def new
     @feast = Feast.new
+  end
+
+  def update
+    @feast = Feast.find(params[:id])
+    @feast.save(strong_feasts_params)
   end
 
   private
