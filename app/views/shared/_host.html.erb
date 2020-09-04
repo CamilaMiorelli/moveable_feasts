@@ -1,0 +1,15 @@
+<% @reservations.each do |reservation| %>
+    <%= reservation.user.first_name %>
+    <%= reservation.user.last_name %>
+    </br>
+    <%= reservation.comment %>
+    </br>
+    <% if reservation.status == "pending" %>
+        <%= button_to "Accept", accept_feast_reservation_path(reservation.feast, reservation), method: :put %>
+        <%= button_to "Decline", decline_feast_reservation_path(reservation.feast, reservation), method: :put %>
+        </br>
+    <% else %>
+            <%= reservation.status %>
+        </br>
+    <% end %>
+<% end %>

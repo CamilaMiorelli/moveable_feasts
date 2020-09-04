@@ -10,16 +10,21 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(reservation_params)
     @feast = Feast.find(params[:feast_id])
-    @reservation.feast = @feast
-    @reservation.user = current_user
-     if @reservation.save
-      redirect_to feast_path(@feast, @reservation)
-      flash.notice = "Your reservation has been sent to the host."
+    if @feast.reservations.to_a.sum(&:number_of_guests) < @feast.guest_limit
+      @reservation = Reservation.new(reservation_params)
+      @reservation.feast = @feast
+      @reservation.user = current_user
+      if @reservation.save
+        redirect_to feast_path(@feast, @reservation)
+        flash.notice = "Your reservation has been sent to the host."
+      else
+        render :new
+        flash.alert = "Your reservation did not save."
+      end
     else
       render :new
-      flash.alert = "Your reservation did not save."
+      flash.alert = "The feast is full"
     end
   end
 

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row reservation-status-card">
+  <% @reservations.each do |reservation| %>
+    <div class="col-10">
+      <h1 class="p-3">Check your Reservation Status
+      </h1>
+        <%= reservation.feast.title %>
+        </br>
+        <%= reservation.feast.description %>
+        </br>
+        <%= reservation.feast.meal_type %>
+        </br>
+        <%= reservation.feast.price %>
+        </br>
+        <%= reservation.feast.address %>
+        </br>
+        <%= reservation.feast.start_at.strftime("%b %e, %l:%M %p") %>
+        </br>
+        <%= reservation.feast.end_at.strftime("%b %e, %l:%M %p") %>
+        </br>
+        <%= reservation.feast.available %>
+      
+      <div class="status">
+      <% if params[:action] == "incoming_bookings" %>
+        <% unless reservation.status == "Accepted" || reservation.status == "Declined" %>
+           <%= button_to "Accept", accept_feast_reservation_path(reservation.feast, reservation), method: :put %>
+           <%= button_to "Decline", decline_feast_reservation_path(reservation.feast, reservation), method: :put %>
+         <% else %>
+            <%= reservation.status %>
+         <% end %>
+      <% else %>
+        <%= reservation.status %>
+      <% end %>
+      </div>
+      </div>
+      <% end %>
+  </div>
+</div>
