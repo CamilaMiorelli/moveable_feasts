@@ -14,6 +14,13 @@
   grid-gap: 16px;
 }
 
+.default-index-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 350px;
+}
+
 @media(max-width: 575px) {
   .testimonials-container, .default-container {
     grid-template-columns: 1fr;
