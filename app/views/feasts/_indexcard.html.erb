@@ -5,7 +5,7 @@
   
   
   <div>
-    <h5 class="default-card-title"> <%= feast.title %> </h5>
+    <h5 class="default-card-title"> <%= link_to "#{feast.title}", feast_path(feast) %> </h5>
     <p class="default-card-text"> <%= feast.description %></p>
     <p class="default-card-text"> <%= feast.meal_type %></p>
     

@@ -6,6 +6,7 @@ We created Moveable Feasts to link people together, whether you just moved here,
  <br><br>
 Once you sign up you can host a dinner or join a meal. Our goal is to put you in touch with delicious meals, potential future friends, and good spirits.</p>
   <%# video_tag "feast.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, alt: "Side banner", class: 'side-banner-img' %>
+  <%= link_to "New event", new_feast_path, class: "bttn bttn1" %>
   </div>
  </div>
  <div class="banner-container">
@@ -13,6 +14,7 @@ Once you sign up you can host a dinner or join a meal. Our goal is to put you in
   <h1 class="banner-header">Moveable Feasts</h1>
   <div class="banner-search">
     <%= render 'shared/search' %>
+    
     </div>
  </div>
 </div>
