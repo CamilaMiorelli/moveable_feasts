@@ -20,7 +20,7 @@ MEALS=["indian", "cuban", "casual", "picnic", "french", "cozy", "dessert" "bistr
 5.times do
 
   meal=MEALS.sample
-  file = URI.open("https://source.unsplash.com/featured/?{meal},{meal}")
+  file = URI.open("https://source.unsplash.com/featured/?{meal})
 
   feast = Feast.new(
     title: "Traditional #{meal} Cuisine",
