@@ -1,5 +1,5 @@
  <%= form_tag feasts_path, :class => "index-search d-flex", method: :get do %>
             <%= text_field_tag :query, params[:query], class: " feast-search", placeholder: "What kind of feast would you like to attend?" %>
-            <%= datetime_field_tag :query, params[:query], class: " feast-time" %>
+            <%= datetime_field_tag :date_query, params[:date_query], class: " feast-time" %>
             <%= button_tag "", class: "button-search" %>
 <% end %>
