@@ -29,14 +29,13 @@ class FeastsController < ApplicationController
   end
 
   def index
-    if params[:date_query].blank? and params[:query].blank?
+    if params[:date_query].blank? && params[:query].blank?
       @feasts = Feast.all
 
-    elsif params[:query].present? and params[:date_query].blank?
+    elsif params[:query].present? && params[:date_query].blank?
       sql_query = "title ILIKE :query OR description @@ :query OR address ILIKE :query OR meal_type ILIKE :query"
        @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
-
-    elsif params[:query].blank? and params[:date_query].present?
+    elsif params[:query].blank? && params[:date_query].present?
       @feasts = Feast.where(start_at: params[:date_query].to_date..params[:date_query].to_date.end_of_day)
       
     else
