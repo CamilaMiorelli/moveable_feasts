@@ -31,7 +31,7 @@ class FeastsController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "title ILIKE :query OR description ILIKE :query"
+      sql_query = "title ILIKE :query OR description ILIKE :query OR address ILIKE :query"
       @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
     else
       @feasts = Feast.all
