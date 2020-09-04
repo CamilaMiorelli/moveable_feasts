@@ -12,11 +12,7 @@ Once you sign up you can host a dinner or join a meal. Our goal is to put you in
     <%= video_tag "feast.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, alt: "Side banner", id: "video", :size => "600x400" %>
   <h1 class="banner-header">Moveable Feasts</h1>
   <div class="banner-search">
-    <%= form_tag feasts_path, :class => "search-bar d-flex", method: :get do %>
-          <%= text_field_tag :query, params[:query], class: "form-control ", placeholder: "Find your Feast", class: "feast-search" %>
-          <%= datetime_field_tag :query, params[:query], class: "form-control", class: "feast-time" %>
-          <%= button_tag "", class: "button-search" %>
-      <% end %>
+    <%= render 'shared/search' %>
     </div>
  </div>
 </div>
