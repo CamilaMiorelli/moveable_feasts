@@ -7,7 +7,7 @@
 <%# if @feast.photo.attached? %>
     <%#= cl_image_tag @feast.photo.key, height: 150, width: 75, crop: :fill %>
 <%# end %>
-
+<div class="map-container">
 <%= @feast.title %>
 </br>
 <%= @feast.description %>
@@ -68,5 +68,5 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
+</div>
 
