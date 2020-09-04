@@ -1,21 +1,20 @@
-<div class="container">
-    <div class="container" >
-        <%= form_tag feasts_path, :class => "search-bar d-flex", method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "What kind of feast would you like to attend?" %>
-            <%= datetime_field_tag :query, params[:query], class: "form-control" %>
-            <%= submit_tag "Search", class: "btn" %>
-        <% end %>
+<div class="index-search">
+    <%= form_tag feasts_path, :class => "search-bar d-flex", method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "form-control ", placeholder: "Find your Feast", class: "feast-search" %>
+          <%= datetime_field_tag :query, params[:query], class: "form-control", class: "feast-time" %>
+          <%= button_tag "", class: "button-search" %>
+      <% end %>
     </div>
-
-    <div class="container">
-        <% @feasts.each do |feast| %>
-             <div class="index-grid">
-                <div class="card">
-                <%= render "indexcard", feast: feast %>
-                </div> 
-            </div> 
-        <% end %>
-    </div>
+<div class="default-index-container">
+<div>
+<% @feasts.each do |feast| %>
+        <div class="default-card">
+        <div class="">
+        <%= render "indexcard", feast: feast %>
+        </div> 
+    </div> 
+<% end %>
+</div>
 
     <div id="map"
         style="width: 100%; height: 400px;"
