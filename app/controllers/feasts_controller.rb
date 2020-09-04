@@ -11,8 +11,7 @@ class FeastsController < ApplicationController
   def show
     @feast = Feast.find(params[:id])
     @reservations = @feast.reservations
-    @reservation = current_user.reservations.find_by(feast: @feast)
-    @feast = Feast.find(params[:id]).includes(:reservations)
+    @reservation = current_user.reservations.find_by(feast: @feast) if current_user
     @markers =
         {
           lat: @feast.latitude,
@@ -30,28 +29,34 @@ class FeastsController < ApplicationController
   end
 
   def index
-    if params[:query].present?
-      sql_query = "title ILIKE :query OR description @@ :query OR address ILIKE :query OR meal_type ILIKE :query"
-      @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
-      @markers = @feasts.geocoded.map do |feast|
-        {
-          lat: feast.latitude,
-          lng: feast.longitude,
-          # infoWindow: render_to_string(partial: "infowindow", locals: { feast: feast }),
-          # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
-        }
-      end
-    else
+    if params[:date_query].blank? and params[:query].blank?
       @feasts = Feast.all
+
+    elsif params[:query].present? and params[:date_query].blank?
+      sql_query = "title ILIKE :query OR description @@ :query OR address ILIKE :query OR meal_type ILIKE :query"
+       @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
+
+    elsif params[:query].blank? and params[:date_query].present?
+      @feasts = Feast.where(start_at: params[:date_query].to_date..params[:date_query].to_date.end_of_day)
+      
+    else
+      @feasts = Feast.where(start_at: params[:date_query].to_date..params[:date_query].to_date.end_of_day)
+      sql_query = "title ILIKE :query OR description @@ :query OR address ILIKE :query OR meal_type ILIKE :query"
+      @feasts = @feasts.where(sql_query, query: "%#{params[:query]}%")
+    # if params[:query].present? or params[:date_query].present?
+    #   sql_query = "title ILIKE :query OR description @@ :query OR address ILIKE :query OR meal_type ILIKE :query"
+    #   @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
+    # else
+    #   @feasts = Feast.all
+    end
       @markers = @feasts.geocoded.map do |feast|
         {
           lat: feast.latitude,
-          lng: feast.longitude,
+          lng: feast.longitude
           # infoWindow: render_to_string(partial: "infowindow", locals: { feast: feast }),
           # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
         }
       end
-    end
   end
 
   def create

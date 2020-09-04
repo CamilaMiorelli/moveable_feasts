@@ -13,7 +13,8 @@ class User < ApplicationRecord
   validates :bio, length: { minimum: 20 }
   validates :gender, length: { minimum: 1 }
   has_one_attached :photo
-  
+  has_many :incoming_reservations, through: :feasts, source: :reservations, class_name: "Reservation"
+
   def host?(feast)
     feast.user == self
   end
