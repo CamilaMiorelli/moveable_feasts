@@ -30,16 +30,26 @@ class FeastsController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "title ILIKE :query OR description ILIKE :query"
+      sql_query = "title ILIKE :query OR description @@ :query OR address ILIKE :query OR meal_type ILIKE :query"
       @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @feasts = Feast.all
-      @markers = @feasts.geocoded.map { |feast|
+      @markers = @feasts.geocoded.map do |feast|
         {
           lat: feast.latitude,
-          lng: feast.longitude
+          lng: feast.longitude,
+          # infoWindow: render_to_string(partial: "infowindow", locals: { feast: feast }),
+          # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
         }
-      }
+      end
+    else
+      @feasts = Feast.all
+      @markers = @feasts.geocoded.map do |feast|
+        {
+          lat: feast.latitude,
+          lng: feast.longitude,
+          # infoWindow: render_to_string(partial: "infowindow", locals: { feast: feast }),
+          # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+        }
+      end
     end
   end
 

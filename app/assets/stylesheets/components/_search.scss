@@ -4,9 +4,21 @@
     opacity: 1;
   }
    position:absolute;
-    left: 15px;
-    bottom: 30px;
+    left: 100px;
+    top: 175px;
     z-index:1;
+}
+
+.index-search {
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  border-bottom: 3px solid black;
+  padding-bottom: 20px;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .feast-search {

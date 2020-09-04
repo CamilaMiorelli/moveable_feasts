@@ -14,48 +14,111 @@ Reservation.destroy_all
 puts 'Creating a fake user...'
 user = User.create(first_name: "Camila", last_name: "Miorelli", email: "a@a.com", password: 123456, bio:"Heyyy this is my bio I am cool and i like to eat and thats about it how are you", gender: "female", admin: true)
 
-ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam"]
-MEALS=["indian", "cuban", "casual", "picnic", "french"]
+ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pannekoekstraat 110, Rotterdam", "Kelderwindkade 15, Haarlem", "Ijsbaanpad 9, Amsterdam"]
+# MEALS=["indian", "cuban", "casual", "picnic", "french", "cozy", "dessert" "bistro", "soul food", "spicy", "healthy"]
+# 5.times do
 
-5.times do
+  # meal=MEALS.sample
 
-  meal=MEALS.sample
-  file = URI.open("https://source.unsplash.com/1600x900/#{meal}")
+  # feast = Feast.new(
+  #   title: "Traditional #{meal} Cuisine",
+  #   description: "I would like to invite everyone to my traditional indian feast.
+  #   I am from the punjabi region of India and I would like to make a curry and have some friends over. The meal will be vegetarian friendly
+  #   and also very spicy! Hope to meet you all soon.",
+  #   user: user,
+  #   meal_type: Faker::Restaurant.type,
+  #   guest_limit: rand(5..20),
+  #   price: rand(8..30),
+  #   available: [true, false].sample,
+  #   address: ADDRESSES.sample,
+  #   start_at:(DateTime.new),
+  #   end_at:(DateTime.new))
+  #   feast.photo.attach(io: file, filename: 'Feast image', content_type: 'image/jpg')
+  #   feast.save!
 
-  feast = Feast.new(
-    title: "Traditional #{meal} Cuisine",
-    description: "I would like to invite everyone to my traditional indian feast.
-    I am from the punjabi region of India and I would like to make a curry and have some friends over. The meal will be vegetarian friendly
-    and also very spicy! Hope to meet you all soon.",
-    user: user,
-    meal_type: Faker::Restaurant.type,
-    guest_limit: rand(5..20),
-    price: rand(8..30),
-    available: [true, false].sample,
-    address: ADDRESSES.sample,
-    start_at:(DateTime.new),
-    end_at:(DateTime.new))
-    feast.photo.attach(io: file, filename: 'Feast image', content_type: 'image/jpg')
-    feast.save!
+    indian = Feast.new(
+      title: "Traditional Indian Cuisine",
+      description: "I would like to invite everyone to my traditional indian feast. I am from the punjabi region of India and I would like to make a curry and have some friends over.",
+      user: user,
+      meal_type: "Vegetarian",
+      guest_limit: 8,
+      price: 20,
+      available: true,
+      address: "Reguliersgracht 17, Amsterdam",
+      start_at: DateTime.new(2019, 12, 03, 18, 00, 0))
+    indian.end_at = indian.start_at + 2.hours
+    indian.save!
 
-    5.times do
-      Reservation.create(number_of_guests: rand(0..5), status: "pending", user: user, feast: feast)
-    end
-  # cuban = Feast.new(
-  #   title: "Camila's Lechon", description: "I will be making lechon asado for new friends!", user: user,
-  #   meal_type: "Meat dish", guest_limit: 8, price: 20, available: true, address: "Gerard Doustraat 22, Amsterdam", start_at:(DateTime.new), end_at:(DateTime.new), photo: "https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599051859/quimbombo_nkrlhv.jpg")
-  # cuban.save!
+    cuban = Feast.new(
+      title: "Camila's Lechon",
+      description: "I will be making lechon asado for new friends!",
+      user: user,
+      meal_type: "Meat dish",
+      guest_limit: 8,
+      price: 20,
+      available: true,
+      address: "Pannekoekstraat 110, Rotterdam",
+      start_at: DateTime.new(2018, 07, 11, 20, 10, 0))
+    cuban.end_at = cuban.start_at + 2.hours
+    cuban.save!
 
-  # casual = Feast.new(title: "Casual Friday Tapas", description: "Hey everyone, I'm not so great at cooking, but I would love to host some tapas at my house, i'll order a mixture of vegetarian and meat dishes,", user: user, meal_type: "Ominivore's Delight", guest_limit: 15, price: 10, available: true, address: "Ijsbaanpad 8, Amsterdam", start_at:(DateTime.new), end_at:(DateTime.new), photo: "https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599051858/pexels-lina-kivaka-1813504_y5wntr.jpg")
-  # casual.save!
+    casual = Feast.new(
+      title: "Casual Friday Tapas",
+      description: "Hey everyone, I'm not so great at cooking, but I would love to host some tapas at my house, i'll order a mixture of vegetarian and meat dishes,",
+      user: user,
+      meal_type: "Ominivore's Delight",
+      guest_limit: 15,
+      price: 10,
+      available: true,
+      address: "Ijsbaanpad 8, Amsterdam",
+      start_at: DateTime.new(2019, 03, 06, 16, 0, 0))
+    casual.end_at = casual.start_at + 2.hours
+    casual.save!
 
-  # picnic = Feast.new(title: "Sunday Picnic at Vondel", description: "Looking to connect with people interested in design and vegan food, I would like to host a picnic in the park, everyone can bring some vegan snacks.", user: user, meal_type: "vegan", guest_limit: 25, price: 0, available: true, address: "Vondel Park, Amsterdam", start_at:(DateTime.new), end_at:(DateTime.new), photo: "https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599051856/pexels-taryn-elliott-4374575_bz4rxt.jpg")
-  # picnic.save!
+    picnic = Feast.new(
+      title: "Sunday Picnic at Vondel",
+      description: "Looking to connect with people interested in design and vegan food, I would like to host a picnic in the park, everyone can bring some vegan snacks.",
+      user: user,
+      meal_type: "vegan",
+      guest_limit: 25,
+      price: 0,
+      available: true,
+      address: "Vondel Park, Amsterdam",
+      start_at: DateTime.new(2020, 01, 10, 07, 30, 0))
+    picnic.end_at = picnic.start_at + 2.hours
+    picnic.save!
 
-  # french = Feast.new(title: "Thursday Night Patisserie", description: "I am an amateur pastry chef, I love to practice my skills with small cakes and madelienes", meal_type: "Dessert", user: user, guest_limit: 3, price: 10, available: true, address: "Prinsengracht 10, Amsterdam", start_at:(DateTime.new), end_at:(DateTime.new), photo: "https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599051937/pexels-flat-hito-863014_txyjpr.jpg")
-  # french.save!
+    french = Feast.new(
+      title: "Thursday Night Patisserie",
+      description: "I am an amateur pastry chef, I love to practice my skills with small cakes and madelienes",
+      meal_type: "Dessert",
+      user: user,
+      guest_limit: 3,
+      price: 10,
+      available: true,
+      address: "Prinsengracht 10, Amsterdam",
+      start_at: DateTime.new(2020, 01, 10, 07, 30, 0))
+    french.end_at = french.start_at + 2.hours
+    french.save!
 
-  # feasts = [indian, cuban, casual, picnic, french]
+
+  file1 = URI.open("https://source.unsplash.com/featured/?food, indian")
+  file2 = URI.open("https://source.unsplash.com/featured/?food, cuban")
+  file3 = URI.open("https://source.unsplash.com/featured/?food, food")
+  file4 = URI.open("https://source.unsplash.com/featured/?food, picnic")
+  file5 = URI.open("https://source.unsplash.com/featured/?food, french")
+
+  indian.photo.attach(io: file1, filename: 'feast.jpg', content_type: 'image/jpg')
+  cuban.photo.attach(io: file2, filename: 'feast.jpg', content_type: 'image/jpg')
+  casual.photo.attach(io: file3, filename: 'feast.jpg', content_type: 'image/jpg')
+  picnic.photo.attach(io: file4, filename: 'feast.jpg', content_type: 'image/jpg')
+  french.photo.attach(io: file5, filename: 'feast.jpg', content_type: 'image/jpg')
+
+  feast = [indian, cuban, casual, picnic, french]
+
+  5.times do
+  Reservation.create(number_of_guests: rand(0..5), status: "pending", user: user, feast: feast.sample)
+  end
 
   # feasts.each_with_index do |feast, top_index|
   #   5.times.with_index do |index|
@@ -76,11 +139,11 @@ MEALS=["indian", "cuban", "casual", "picnic", "french"]
   # feast3.save!
   # feast4.save!
   # feast5.save!
-end
 
 
 puts "#{Feast.count} feasts created"
 puts "#{User.count} users created"
+puts "#{Reservation.count} reservations created"
 puts "--------------------------"
 puts "End time is #{Time.now}"
 puts "--------------------------"

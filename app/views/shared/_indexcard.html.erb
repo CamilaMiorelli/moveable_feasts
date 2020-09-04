@@ -1,4 +1,4 @@
-<div class="card">
+<div class="default-card-index">
   <%= link_to feast_path(feast) do %>
     <% if feast.photo.present? %>
       <%= cl_image_tag feast.photo.key, height: 150, width: 75, crop: :fill %>
@@ -16,3 +16,4 @@
     <span class="badge">availabile now</span>
   </div>
 </div>
+
