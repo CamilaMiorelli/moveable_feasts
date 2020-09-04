@@ -11,8 +11,13 @@
   width: 40px;
 }
 
+.navbar-logo {
+  position: relative;
+  left: 50px;
+}
+
 .navbar-logo a {
-  font-family: 'La Belle Aurore', cursive;
+  font-family: 'Rubik Mono One', cursive;
   font-size: 30px;
   text-decoration: none;
   color: #50514F;
@@ -20,13 +25,13 @@
 
 .logo-first-letter {
   font-size: 40px;
-  color: #DF9B74;
+  color: #c87d41;
 }
 
 .dropdown-menu{
   background-color: #50514F;
   border-radius: 10px;
-  opacity: 0.5;  
+  opacity: 0.5;
 }
 
 .dropdown-menu a {
