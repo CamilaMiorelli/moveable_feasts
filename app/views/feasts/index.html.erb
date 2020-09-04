@@ -1,17 +1,8 @@
-<div class="container">
-    <div class="container" >
-    <%#= render 'shared/search' %>
-    </div>
 
-    <div class="container">
-        <% @feasts.each do |feast| %>
-             <div class="index-grid">
-                <div class="card">
-                <%= render "indexcard", feast: feast %>
-                </div> 
-            </div> 
-        <% end %>
+  <div>
+    <%= render 'shared/search' %>
     </div>
+    
 <div class="default-index-container">
 <div>
 <% @feasts.each do |feast| %>
