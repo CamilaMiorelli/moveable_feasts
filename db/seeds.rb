@@ -24,7 +24,7 @@ MEALS=["indian", "cuban", "casual", "picnic", "french", "cozy", "dessert" "bistr
 
   feast = Feast.new(
     title: "Traditional #{meal} Cuisine",
-    description: "I would like to invite everyone to my traditional indian feast.
+    description: "I would like to invite everyone to my traditional #{meal} feast.
     I am from the punjabi region of India and I would like to make a curry and have some friends over. The meal will be vegetarian friendly
     and also very spicy! Hope to meet you all soon.",
     user: user,
@@ -33,9 +33,9 @@ MEALS=["indian", "cuban", "casual", "picnic", "french", "cozy", "dessert" "bistr
     price: rand(8..30),
     available: [true, false].sample,
     address: ADDRESSES.sample,
-    start_at:(DateTime.new),
-    end_at:(DateTime.new))
-    feast.photo.attach(io: file, filename: 'Feast image', content_type: 'image/jpg')
+    start_at: (DateTime.now),
+    end_at: (DateTime.now.end_of_day))
+    # feast.photo.attach(io: file, filename: 'Feast image', content_type: 'image/jpg')
     feast.save!
 
     5.times do
