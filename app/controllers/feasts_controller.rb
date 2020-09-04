@@ -39,8 +39,8 @@ class FeastsController < ApplicationController
         {
           lat: feast.latitude,
           lng: feast.longitude,
-          infoWindow: render_to_string(partial: "infowindow", locals: { feast: feast }),
-          image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+          # infoWindow: render_to_string(partial: "infowindow", locals: { feast: feast }),
+          # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
         }
       end
     end
