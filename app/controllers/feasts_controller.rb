@@ -22,7 +22,7 @@ class FeastsController < ApplicationController
 
   def home
     if params[:query].present?
-      sql_query = "title ILIKE :query OR description ILIKE :query"
+      sql_query = "title ILIKE :query OR description @@ :query OR address ILIKE :query OR meal_type ILIKE :query"
       @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
     else
       @feasts = Feast.all
