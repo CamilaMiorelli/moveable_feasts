@@ -26,8 +26,9 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 20px;
-  bottom: 100px;
+  left: 60px;
+  bottom: 120px;
+  
 }
 
 .default-card-text {
@@ -35,7 +36,7 @@
 }
 
 .default-card-title {
-
+  font-weight: bold;
 }
 .default-card-body:before {
   content: "";
@@ -43,8 +44,7 @@
   bottom: 0;
   left: 0;
   height: 100%;
-  
-  border: 5px solid #E2973C;
+  border: 3px solid #50514F;
   z-index: 10;
   width: 100%;
   clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
@@ -62,7 +62,7 @@
   bottom: 0;
   left: 0;
   height: 100%;
-  border: 5px solid gold;
+  border: 5px solid #EDBD82;
   z-index: 10;
   width: 100%;
   color: rgb(122, 122, 122);
@@ -89,10 +89,12 @@
 
 @keyframes borderAfter {
 0% {
-    clip-path: polygon(100% 0%, 100% 200%, -100% 0%);
+  clip-path:polygon(0% 100%, 0% 100%, 0% 100%)
+    // clip-path: polygon(100% 0%, 100% 200%, -100% 0%);
  }
  100% {
-  clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
+   clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
+  // clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
 }
  }
 // after: clip-path: polygon(0% 100%, 0% -100%, 200% 100%);

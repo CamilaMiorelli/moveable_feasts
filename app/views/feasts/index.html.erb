@@ -6,11 +6,7 @@
 <div class="default-index-container">
 <div>
 <% @feasts.each do |feast| %>
-        <div class="default-card">
-        <div class="">
         <%= render "indexcard", feast: feast %>
-        </div> 
-    </div> 
 <% end %>
 </div>
 
