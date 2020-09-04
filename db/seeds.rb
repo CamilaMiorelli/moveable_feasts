@@ -14,13 +14,13 @@ Reservation.destroy_all
 puts 'Creating a fake user...'
 user = User.create(first_name: "Camila", last_name: "Miorelli", email: "a@a.com", password: 123456, bio:"Heyyy this is my bio I am cool and i like to eat and thats about it how are you", gender: "female", admin: true)
 
-ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam"]
-MEALS=["indian", "cuban", "casual", "picnic", "french"]
+ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pannekoekstraat 110, Rotterdam", "Kelderwindkade 15, Haarlem", "Ijsbaanpad 9, Amsterdam"]
+MEALS=["indian", "cuban", "casual", "picnic", "french", "cozy", "dessert" "bistro", "soul food", "spicy", "healthy"]
 
 5.times do
 
   meal=MEALS.sample
-  file = URI.open("https://source.unsplash.com/1600x900/#{meal}")
+  file = URI.open("https://source.unsplash.com/featured/?{meal}")
 
   feast = Feast.new(
     title: "Traditional #{meal} Cuisine",
