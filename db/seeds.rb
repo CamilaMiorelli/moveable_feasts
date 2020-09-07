@@ -47,7 +47,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       user: user,
       meal_type: "Vegetarian",
       guest_limit: 8,
-      price: 20,
+      price_cents: 2000,
       available: true,
       address: "Reguliersgracht 17, Amsterdam",
       start_at: DateTime.new(2019, 12, 3, 18, 00, 0))
@@ -62,7 +62,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       user: user,
       meal_type: "Meat dish",
       guest_limit: 8,
-      price: 20,
+      price_cents: 2000,
       available: true,
       address: "Pannekoekstraat 110, Rotterdam",
       start_at: DateTime.new(2018, 7, 11, 20, 10, 0))
@@ -76,7 +76,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       user: user,
       meal_type: "Ominivore's Delight",
       guest_limit: 15,
-      price: 10,
+      price_cents: 1000,
       available: true,
       address: "Ijsbaanpad 8, Amsterdam",
       start_at: DateTime.new(2019, 3, 6, 16, 0, 0))
@@ -90,7 +90,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       user: user,
       meal_type: "vegan",
       guest_limit: 25,
-      price: 0,
+      price_cents: 1000,
       available: true,
       address: "Vondel Park, Amsterdam",
       start_at: DateTime.new(2020, 1, 10, 7, 30, 0))
@@ -104,7 +104,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       meal_type: "Dessert",
       user: user,
       guest_limit: 3,
-      price: 10,
+      price_cents: 1000,
       available: true,
       address: "Prinsengracht 10, Amsterdam",
       start_at: DateTime.new(2020, 01, 10, 7, 30, 0))
@@ -118,7 +118,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       meal_type: "Dessert",
       user: user,
       guest_limit: 3,
-      price: 10,
+      price_cents: 1000,
       available: true,
       address: "Prinsengracht 10, Amsterdam",
       start_at: DateTime.new(2020, 9, 7, 7, 30, 0))
@@ -133,7 +133,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       meal_type: "Dessert",
       user: user,
       guest_limit: 3,
-      price: 10,
+      price_cents: 1000,
       available: true,
       address: "Prinsengracht 10, Amsterdam",
       start_at: DateTime.new(2020, 9, 8, 7, 30, 0))
@@ -148,7 +148,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       meal_type: "Dessert",
       user: user,
       guest_limit: 3,
-      price: 10,
+      price_cents: 1000,
       available: true,
       address: "Prinsengracht 10, Amsterdam",
       start_at: DateTime.new(2020, 9, 9, 7, 30, 0))
@@ -163,7 +163,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       meal_type: "Dessert",
       user: user,
       guest_limit: 3,
-      price: 10,
+      price_cents: 1000,
       available: true,
       address: "Prinsengracht 10, Amsterdam",
       start_at: DateTime.new(2020, 9, 10, 7, 30, 0))
@@ -177,7 +177,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       meal_type: "Dessert",
       user: user,
       guest_limit: 3,
-      price: 10,
+      price_cents: 1000,
       available: true,
       address: "Prinsengracht 10, Amsterdam",
       start_at: DateTime.new(2020, 9, 11, 7, 30, 0))
