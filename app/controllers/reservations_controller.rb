@@ -15,7 +15,23 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.new(reservation_params)
       @reservation.feast = @feast
       @reservation.user = current_user
-      if @reservation.save
+      @reservation.amount = @feast.price_cents * params[:feast][:number_of_guests]
+      @reservation.state = "Pending"
+      @reservation.save
+
+       session = Stripe::Checkout::Session.create(
+          payment_method_types: ['card'],
+          line_items: [{
+            name: @feast.title,
+            amount: @feast.price_cents * params[:feast][:number_of_guests],
+            currency: 'eur',
+            quantity: 1
+          }],
+          success_url: feast_reservation_path(@feast, @reservation),
+          cancel_url: feast_reservation_path(@feast, @reservation)
+        )
+       @reservation.checkout_session_id = session.id
+      if @reservation.update
         redirect_to feast_path(@feast, @reservation)
         flash.notice = "Your reservation has been sent to the host."
       else

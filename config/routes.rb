@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'feasts#home'
   resources :feasts do
     resources :reservations, only: [ :new, :create, :show, :update] do
+      resources :payments, only: :new
       member do
         put :accept
         put :decline
@@ -15,5 +16,5 @@ Rails.application.routes.draw do
   end
   get '/bookings' => 'reservations#bookings', as: "bookings"
   get '/incoming_bookings' => 'reservations#incoming_bookings', as: "incoming_bookings"
-  resources :chatrooms, only: :index 
+  resources :chatrooms, only: :index
 end
