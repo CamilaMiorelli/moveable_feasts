@@ -7,6 +7,7 @@ class ReservationsController < ApplicationController
   def show
     @feast = Feast.find(params[:feast_id])
     @reservation = Reservation.find(params[:id])
+    @reservation = current_user.reservations.find(params[:id])
   end
 
   def create
@@ -15,16 +16,35 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.new(reservation_params)
       @reservation.feast = @feast
       @reservation.user = current_user
-      if @reservation.save
-        redirect_to feast_path(@feast, @reservation)
-        flash.notice = "Your reservation has been sent to the host."
-      else
-        render :new
-        flash.alert = "Your reservation did not save."
-      end
-    else
-      render :new
-      flash.alert = "The feast is full"
+      @reservation.amount = @feast.price_cents * params[:reservation][:number_of_guests].to_i
+      @reservation.state = "Pending"
+      @reservation.save
+
+       session = Stripe::Checkout::Session.create(
+          payment_method_types: ['card'],
+          line_items: [{
+            name: @feast.title,
+            amount: @feast.price_cents * params[:reservation][:number_of_guests].to_i,
+            currency: 'eur',
+            quantity: 1
+          }],
+          success_url: root_url,
+          cancel_url: root_url
+        )
+       @reservation.update(checkout_session_id: session.id)
+       flash.notice = "Worked"
+       redirect_to new_feast_reservation_payment_path(@feast, @reservation)
+    #   if @reservation.update
+    #     redirect_to feast_path(@feast, @reservation)
+    #     flash.notice = "Your reservation has been sent to the host."
+    #   else
+    #     render :new
+    #     flash.alert = "Your reservation did not save."
+    #   end
+    # else
+    #   render :new
+    #   flash.alert = "The feast is full"
+    # end
     end
   end
 
