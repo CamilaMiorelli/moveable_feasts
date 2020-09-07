@@ -1,3 +1,6 @@
+<div class = "bttn-index">
+<%= link_to "availabile now", feast_path(feast), class: "bttn1 bttn" %>
+</div>
 <div class="default-card-index">
 <div class="default-card-body">
 <div class = "card-inner">
@@ -5,7 +8,7 @@
   
   
   <div>
-    <h5 class="default-card-title"> <%= link_to "#{feast.title}", feast_path(feast) %> </h5>
+    <h4><%= feast.title %> </h4>
     <p class="default-card-text"> <%= feast.description %></p>
     <p class="default-card-text"> <%= feast.meal_type %></p>
     

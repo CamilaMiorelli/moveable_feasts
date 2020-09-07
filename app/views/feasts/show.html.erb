@@ -4,32 +4,16 @@
 
 <%# method for definig avatar is not yet available. %>
 
-<%# if @feast.photo.attached? %>
-    <%#= cl_image_tag @feast.photo.key, height: 150, width: 75, crop: :fill %>
-<%# end %>
-<div class="default-index-container">
+
+<div class = "show-container">
+<% if @feast.photo.attached? %>
+    <%= cl_image_tag @feast.photo.key, crop: :fill, class: "show-img" %>
+<% end %>
+<div class = "show-card">
+<div class = "show-card-titles">
+<div class= "show-card-title">
 <%= @feast.title %>
-</br>
-<%#= reservation.user.first_name %> <%#= reservation.user.last_name %>
-</br>
-<%= @feast.description %>
-</br>
-<%= @feast.meal_type %>
-</br>
-<%= @feast.price %>
-</br>
-<%# Method for defining distance to the party is not yet available. %>
-<%= @feast.address %>
-</br>
-
-<%= @feast.start_at.strftime("%b %e, %l:%M %p") %>
-</br>
-<%= @feast.end_at.strftime("%b %e, %l:%M %p") %>
-</br>
-<%= @feast.available %>
-</br>
-</br>
-
+</div>
 <% if current_user.present? %>
 
     <% if current_user.host?(@feast) %>
@@ -39,10 +23,33 @@
     <% end %>
 
 <% else %>
-        <%= button_to "Reserve", new_user_session_path %>
-
-        
+        <%= link_to "Reserve", new_user_session_path, class: "bttn bttn-dark bttn2" %>
 <% end %>
+</div>
+<div class = "price-desc">
+<div class = "default-card-desc">
+<%= @feast.description %>
+</div>
+<div class= "show-price">
+<p>€<%= @feast.price %></p>
+</div>
+</div>
+<div class = "show-card-text">
+<div class = "show-meal-type">
+<%= @feast.meal_type %>
+</div>
+<%# Method for defining distance to the party is not yet available. %>
+<div class= "show-address">
+<%= @feast.address %>
+</div>
+<div class= "show-start-at">
+<%= @feast.start_at.strftime("%b %e, %l:%M %p") %>
+</div>
+<div class= "show-end-at">
+<%= @feast.end_at.strftime("%b %e, %l:%M %p") %>
+</div>
+<%= @feast.reservations.to_a.sum(&:number_of_guests) %> / <%= @feast.guest_limit  %>
+
 
 <div class="modal" tabindex="-1" role="dialog" id="reservation-popup">
     <div class="modal-dialog" role="document">
@@ -66,12 +73,12 @@
     </div>
 </div>
 
-<%= @feast.reservations.where(status: "Accepted").sum(&:number_of_guests)  %> / <%= @feast.guest_limit  %>
 
+</div>
 <div id="map"
     style="width: 100%; height: 400px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 </div>
-
+</div>
