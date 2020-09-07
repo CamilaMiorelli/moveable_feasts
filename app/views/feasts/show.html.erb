@@ -48,7 +48,7 @@
 <div class= "show-end-at">
 <%= @feast.end_at.strftime("%b %e, %l:%M %p") %>
 </div>
-<%= @feast.reservations.to_a.sum(&:number_of_guests) %> / <%= @feast.guest_limit  %>
+<%= @feast.reservations.where(status: "Accepted").sum(&:number_of_guests) %> / <%= @feast.guest_limit  %>
 
 
 <div class="modal" tabindex="-1" role="dialog" id="reservation-popup">
