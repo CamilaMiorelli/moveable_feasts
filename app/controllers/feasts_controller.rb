@@ -1,5 +1,5 @@
 class FeastsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show, :home, :create ]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :home ]
 
   def cancel
     @feast = Feast.find(params[:id])
@@ -60,7 +60,15 @@ class FeastsController < ApplicationController
 
   def create
     @feast = Feast.new(strong_feasts_params)
-    @feast.save!
+    @feast.user = current_user
+    @feast.save
+    if @feast.save
+        redirect_to feast_path(@feast)
+        flash.notice = "You have created a new event."
+    else
+      render :new
+      flash.alert = "Your event did not save."
+    end
   end
 
   def new
@@ -75,7 +83,7 @@ class FeastsController < ApplicationController
   private
 
   def strong_feasts_params
-    params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price, :address, :start_at, :photo)
+    params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price, :address, :start_at, :end_at, :photo)
 
   end
 end
