@@ -37,7 +37,7 @@ class FeastsController < ApplicationController
        @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
     elsif params[:query].blank? && params[:date_query].present?
       @feasts = Feast.where(start_at: params[:date_query].to_date..params[:date_query].to_date.end_of_day)
-      
+
     else
       @feasts = Feast.where(start_at: params[:date_query].to_date..params[:date_query].to_date.end_of_day)
       sql_query = "title ILIKE :query OR description @@ :query OR address ILIKE :query OR meal_type ILIKE :query"
@@ -60,7 +60,15 @@ class FeastsController < ApplicationController
 
   def create
     @feast = Feast.new(strong_feasts_params)
-    @feast.save!
+    @feast.user = current_user
+    @feast.save
+    if @feast.save
+        redirect_to feast_path(@feast)
+        flash.notice = "You have created a new event."
+    else
+      render :new
+      flash.alert = "Your event did not save."
+    end
   end
 
   def new
@@ -75,7 +83,7 @@ class FeastsController < ApplicationController
   private
 
   def strong_feasts_params
-    params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price, :address, :start_at, :photo)
+    params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price, :address, :start_at, :end_at, :photo)
 
   end
 end
