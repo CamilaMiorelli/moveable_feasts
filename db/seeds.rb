@@ -12,7 +12,10 @@ User.destroy_all
 Reservation.destroy_all
 
 puts 'Creating a fake user...'
+file = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599472451/Avatar_Camila_2020_m3x0hw.jpg')
 user = User.create(first_name: "Camila", last_name: "Miorelli", email: "a@a.com", password: 123456, bio:"Heyyy this is my bio I am cool and i like to eat and thats about it how are you", gender: "female", admin: true)
+user.photo.attach(io: file, filename: 'camila.jpg', content_type: 'image/jpg')
+
 
 ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pannekoekstraat 110, Rotterdam", "Kelderwindkade 15, Haarlem", "Ijsbaanpad 9, Amsterdam"]
 # MEALS=["indian", "cuban", "casual", "picnic", "french", "cozy", "dessert" "bistro", "soul food", "spicy", "healthy"]
@@ -177,6 +180,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
   casual.photo.attach(io: file3, filename: 'feast.jpg', content_type: 'image/jpg')
   picnic.photo.attach(io: file4, filename: 'feast.jpg', content_type: 'image/jpg')
   french.photo.attach(io: file5, filename: 'feast.jpg', content_type: 'image/jpg')
+
 
   feast = [indian, cuban, casual, picnic, french]
 

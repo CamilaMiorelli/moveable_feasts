@@ -18,5 +18,9 @@ class User < ApplicationRecord
   def host?(feast)
     feast.user == self
   end
-  
+
+  def full_name
+    "#{first_name.capitalize} #{last_name.capitalize}"
+  end
+
 end
