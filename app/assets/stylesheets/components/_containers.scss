@@ -50,9 +50,10 @@
   }
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1000px) {
   .testimonials-container, .default-container {
     grid-template-columns: 1fr;
     margin-bottom: 40px;
+    grid-gap: 16px;
   }
 }
