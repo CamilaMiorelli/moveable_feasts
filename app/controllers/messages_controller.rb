@@ -15,6 +15,10 @@ class MessagesController < ApplicationController
         end
     end
     
+    # def new
+    #     @message = Message.new
+    #   end
+
     private
     
     def strong_messages_params

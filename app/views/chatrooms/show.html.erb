@@ -4,7 +4,7 @@
     <%= render "message", message: message %>
   <% end %>
 </div>
-<%= simple_form_for [ @message ], url: feast_chatroom_messages_url(params[:feast_id]), remote: true do |f| %>
+<%= simple_form_for [ @message ], url: feast_chatrooms_messages_path(@feast), remote: true do |f| %>
   <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.feast.title}" %>
   <%= f.submit :submit %>
 <% end %>

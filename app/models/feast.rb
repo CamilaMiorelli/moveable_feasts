@@ -10,9 +10,16 @@ class Feast < ApplicationRecord
   validates :start_at, presence: true
   validates :end_at, presence: true
   has_one_attached :photo
-  
+  after_create :create_chatroom
+
   def host?(user)
     self.user == user
+  end
+
+  def create_chatroom
+    chatroom = Chatroom.new(feast: self)
+    chatroom.save!
+    redirect_to feasts_path
   end
   
   geocoded_by :address

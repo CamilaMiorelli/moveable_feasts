@@ -10,10 +10,11 @@ Rails.application.routes.draw do
         put :decline
       end
     end
-    resource :chatroom, only: :show  do
+    resource :chatrooms, only: :show  do
     resources :messages, only: :create
   end
   end
   get '/bookings' => 'reservations#bookings', as: "bookings"
   get '/incoming_bookings' => 'reservations#incoming_bookings', as: "incoming_bookings"
+  resources :chatrooms, only: :index 
 end
