@@ -1,3 +1,3 @@
-<% @feasts.each do |feast| %>
-<li> <%= feast.title %> <%=  link_to "CHAT", feast_chatrooms_path(feast)%></li>
+<% @all_feasts.each do |feast| %>
+<li> <%= feast.title %> <%=  link_to "CHAT", feast_chatrooms_path(feast, anchor: "new_message")%></li>
 <% end %>
