@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :reservations
   has_many :events, through: :reservations, source: :feast, class_name: "Feast"
   has_many :reviews
-  has_many :messages
+  has_many :messages, dependent: :destroy
   validates :first_name, length: { minimum: 1 }
   validates :last_name, length: { minimum: 1 }
   validates :bio, length: { minimum: 20 }
@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   def all_feasts
     # events.or(feasts)
-    feasts_array = [] 
+    feasts_array = []
     # grab feasts where user is organizer
     feasts_array << feasts
     # grab feasts where user is organizer
@@ -39,7 +39,7 @@ class User < ApplicationRecord
       false
     end
   end
-  
+
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
