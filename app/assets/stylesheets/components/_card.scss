@@ -35,17 +35,65 @@
   padding-top: 40px;
 }
 
-
+.show-card {
+  padding: 40px;
+}
 .index-img {
   margin-bottom: 5px;
 }
 
-.default-card-text {
-  font-size: 12px;
+.show-card-titles {
+  display: flex;
+  justify-content: space-between;
 }
 
+.show-card-title {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px;
+}
+.show-card-text {
+  display: flex;
+  border: 1px solid rgb(193, 193, 193);
+  padding: 10px;
+  justify-content: space-between;
+}
+.default-card-text {
+  font-size: 12px;
+  
+}
+
+.price-desc {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.show-img {
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.show-price {
+  font-weight: bold;
+  font-size: 30px;
+}
+.show-meal-type, .show-address, .show-start-at, .show-end-at {
+  
+  height: 100%;
+  padding: 0px 15px;
+}
+.default-card-desc {
+  padding: 10px;
+  font-size: 18px;
+}
 .default-card-title {
   font-weight: bold;
+  font-size: 30px;
+  padding: 10px;
 }
 .default-card-body:before {
   content: "";
@@ -115,3 +163,4 @@
 // 100% {
   // clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
 // }
+
