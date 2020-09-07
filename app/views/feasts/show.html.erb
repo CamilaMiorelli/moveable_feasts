@@ -10,6 +10,8 @@
 <div class="default-index-container">
 <%= @feast.title %>
 </br>
+<%#= reservation.user.first_name %> <%#= reservation.user.last_name %>
+</br>
 <%= @feast.description %>
 </br>
 <%= @feast.meal_type %>
@@ -24,9 +26,9 @@
 </br>
 <%= @feast.end_at.strftime("%b %e, %l:%M %p") %>
 </br>
-<%= @feast.available %>
-        </br>
-        </br>
+<% @feast.available %>
+</br>
+</br>
 
 <% if current_user.present? %>
 
@@ -38,6 +40,8 @@
 
 <% else %>
         <%= button_to "Reserve", new_user_session_path %>
+
+        
 <% end %>
 
 <div class="modal" tabindex="-1" role="dialog" id="reservation-popup">
@@ -51,6 +55,7 @@
             </div>
             <%= simple_form_for [@feast, Reservation.new] do |f| %>
                 <div class="modal-body">
+                    <%= f.input :number_of_guests, collection: 1..4 %>
                     <%= f.input :comment %>
                     </div>
                     <div class="modal-footer">
@@ -61,7 +66,7 @@
     </div>
 </div>
 
-<%= @feast.reservations.to_a.sum(&:number_of_guests) %> / <%= @feast.guest_limit  %>
+<%= @feast.reservations.to_a.sum(&:number_of_guests)  %> / <%= @feast.guest_limit  %>
 
 <div id="map"
     style="width: 100%; height: 400px;"
