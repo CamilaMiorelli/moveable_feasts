@@ -28,21 +28,23 @@ class ReservationsController < ApplicationController
             currency: 'eur',
             quantity: 1
           }],
-          success_url: feast_reservation_path(@feast, @reservation),
-          cancel_url: feast_reservation_path(@feast, @reservation)
+          success_url: root_url,
+          cancel_url: root_url
         )
-       @reservation.update(@reservation.checkout_session_id = session.id)
-       redirect_to new_feast_reservation_payment_path(@feast, @reservation, @payment)
-      if @reservation.update
-        redirect_to feast_path(@feast, @reservation)
-        flash.notice = "Your reservation has been sent to the host."
-      else
-        render :new
-        flash.alert = "Your reservation did not save."
-      end
-    else
-      render :new
-      flash.alert = "The feast is full"
+       @reservation.update(checkout_session_id: session.id)
+       flash.notice = "Worked"
+       redirect_to new_feast_reservation_payment_path(@feast, @reservation)
+    #   if @reservation.update
+    #     redirect_to feast_path(@feast, @reservation)
+    #     flash.notice = "Your reservation has been sent to the host."
+    #   else
+    #     render :new
+    #     flash.alert = "Your reservation did not save."
+    #   end
+    # else
+    #   render :new
+    #   flash.alert = "The feast is full"
+    # end
     end
   end
 
