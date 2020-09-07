@@ -12,7 +12,7 @@
         </br>
         <%= reservation.feast.meal_type %>
         </br>
-        <%= reservation.feast.price %>
+        <%= reservation.feast.price_cents %>
         </br>
         <%= reservation.feast.address %>
         </br>
@@ -23,7 +23,7 @@
         <%= reservation.feast.available %>
         </br>
         Number of guests: <%= reservation.number_of_guests %>
-      
+
 
       <div class="status">
       <% if params[:action] == "incoming_bookings" %>
