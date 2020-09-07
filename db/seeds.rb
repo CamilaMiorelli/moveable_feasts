@@ -13,6 +13,7 @@ Reservation.destroy_all
 
 puts 'Creating a fake user...'
 user = User.create(first_name: "Camila", last_name: "Miorelli", email: "a@a.com", password: 123456, bio:"Heyyy this is my bio I am cool and i like to eat and thats about it how are you", gender: "female", admin: true)
+user = User.create(first_name: "David", last_name: "L", email: "aa@a.com", password: 123456, bio:"Heyyy this is my bio I am cool and i like to eat and thats about it how are you", gender: "male", admin: true)
 
 ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pannekoekstraat 110, Rotterdam", "Kelderwindkade 15, Haarlem", "Ijsbaanpad 9, Amsterdam"]
 # MEALS=["indian", "cuban", "casual", "picnic", "french", "cozy", "dessert" "bistro", "soul food", "spicy", "healthy"]
@@ -35,6 +36,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
   #   end_at:(DateTime.new))
   #   feast.photo.attach(io: file, filename: 'Feast image', content_type: 'image/jpg')
   #   feast.save!
+  puts "Start creating feasts"
 
     indian = Feast.new(
       title: "Traditional Indian Cuisine",
@@ -46,8 +48,10 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       available: true,
       address: "Reguliersgracht 17, Amsterdam",
       start_at: DateTime.new(2019, 12, 3, 18, 00, 0))
+      p indian
     indian.end_at = indian.start_at + 2.hours
     indian.save!
+    puts "Indian feast created"
 
     cuban = Feast.new(
       title: "Camila's Lechon",
@@ -61,6 +65,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       start_at: DateTime.new(2018, 7, 11, 20, 10, 0))
     cuban.end_at = cuban.start_at + 2.hours
     cuban.save!
+    puts "Cuban feast created"
 
     casual = Feast.new(
       title: "Casual Friday Tapas",
@@ -74,6 +79,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       start_at: DateTime.new(2019, 3, 6, 16, 0, 0))
     casual.end_at = casual.start_at + 2.hours
     casual.save!
+    puts "Casual feast created"
 
     picnic = Feast.new(
       title: "Sunday Picnic at Vondel",
@@ -87,6 +93,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       start_at: DateTime.new(2020, 1, 10, 7, 30, 0))
     picnic.end_at = picnic.start_at + 2.hours
     picnic.save!
+    puts "Picnic feast created"
 
     french = Feast.new(
       title: "Thursday Night Patisserie",
@@ -100,6 +107,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       start_at: DateTime.new(2020, 01, 10, 7, 30, 0))
     french.end_at = french.start_at + 2.hours
     french.save!
+    puts "French feast created"
 
     french = Feast.new(
       title: "Thursday Night Patisserie",
@@ -113,6 +121,8 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       start_at: DateTime.new(2020, 9, 7, 7, 30, 0))
     french.end_at = french.start_at + 2.hours
     french.save!
+    puts "French feast created"
+
 
     french = Feast.new(
       title: "Thursday Night Patisserie",
@@ -126,6 +136,8 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       start_at: DateTime.new(2020, 9, 8, 7, 30, 0))
     french.end_at = french.start_at + 2.hours
     french.save!
+    puts "French feast created"
+
 
     french = Feast.new(
       title: "Thursday Night Patisserie",
@@ -139,6 +151,8 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       start_at: DateTime.new(2020, 9, 9, 7, 30, 0))
     french.end_at = french.start_at + 2.hours
     french.save!
+    puts "French feast created"
+
 
     french = Feast.new(
       title: "Thursday Night Patisserie",
@@ -152,6 +166,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       start_at: DateTime.new(2020, 9, 10, 7, 30, 0))
     french.end_at = french.start_at + 2.hours
     french.save!
+    puts "French feast created"
 
     french = Feast.new(
       title: "Thursday Night Patisserie",
@@ -165,6 +180,8 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       start_at: DateTime.new(2020, 9, 11, 7, 30, 0))
     french.end_at = french.start_at + 2.hours
     french.save!
+    puts "French feast created"
+
 
   file1 = URI.open("https://source.unsplash.com/featured/?food, indian")
   file2 = URI.open("https://source.unsplash.com/featured/?food, cuban")
