@@ -5,6 +5,6 @@
   <% end %>
 </div>
 <%= simple_form_for [ @message ], url: feast_chatrooms_messages_path(@feast), remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.feast.title}" %>
+  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.feast.title}", as: :string %>
   <%= f.submit :submit %>
 <% end %>
