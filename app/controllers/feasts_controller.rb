@@ -12,6 +12,9 @@ class FeastsController < ApplicationController
     @feast = Feast.find(params[:id])
     @reservations = @feast.reservations
     @reservation = current_user.reservations.find_by(feast: @feast) if current_user
+    # if @reservation == "Accepted"
+    #   @feast.reservations.to_a.sum(&:number_of_guests)
+    # end
     @markers =
         {
           lat: @feast.latitude,
