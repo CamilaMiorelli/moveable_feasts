@@ -11,6 +11,8 @@ class Feast < ApplicationRecord
   validates :end_at, presence: true
   has_one_attached :photo
   after_create :create_chatroom
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   def host?(user)
     self.user == user
@@ -19,9 +21,6 @@ class Feast < ApplicationRecord
   def create_chatroom
     chatroom = Chatroom.new(feast: self)
     chatroom.save!
-    redirect_to feasts_path
   end
   
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
 end
