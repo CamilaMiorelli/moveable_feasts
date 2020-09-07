@@ -1,5 +1,5 @@
 class FeastsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show, :home ]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :home, :create ]
 
   def cancel
     @feast = Feast.find(params[:id])
@@ -37,7 +37,7 @@ class FeastsController < ApplicationController
        @feasts = Feast.where(sql_query, query: "%#{params[:query]}%")
     elsif params[:query].blank? && params[:date_query].present?
       @feasts = Feast.where(start_at: params[:date_query].to_date..params[:date_query].to_date.end_of_day)
-      
+
     else
       @feasts = Feast.where(start_at: params[:date_query].to_date..params[:date_query].to_date.end_of_day)
       sql_query = "title ILIKE :query OR description @@ :query OR address ILIKE :query OR meal_type ILIKE :query"
