@@ -2,7 +2,7 @@
   <div class="row reservation-status-card">
   <% @reservations.each do |reservation| %>
     <div class="col-10">
-      <h1 class="p-3">Check your Reservation Status
+      <h1 class="p-3">Current status of your event bookings
       </h1>
         <%= reservation.feast.title %>
         </br>
@@ -19,7 +19,7 @@
         <%= reservation.feast.end_at.strftime("%b %e, %l:%M %p") %>
         </br>
         <%= reservation.feast.available %>
-      
+
       <div class="status">
       <% if params[:action] == "incoming_bookings" %>
         <% unless reservation.status == "Accepted" || reservation.status == "Declined" %>
