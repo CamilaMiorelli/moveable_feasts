@@ -47,7 +47,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       user: user,
       meal_type: "Vegetarian",
       guest_limit: 8,
-      price_cents: 20,
+      price_cents: 2000,
       available: true,
       address: "Reguliersgracht 17, Amsterdam",
       start_at: DateTime.new(2019, 12, 3, 18, 00, 0))
