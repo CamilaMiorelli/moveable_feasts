@@ -1,3 +1,4 @@
+<div class="login-container">
 <h2>Create your Feast!</h2>
 <%= simple_form_for @feast do |f| %>
     <%= f.input :title %>
@@ -11,6 +12,7 @@
     <%= f.input :end_at, as: :datetime %>
 
     <%= f.input :photo, as: :file %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "bttn-dark bttn2" %>
 
 <% end %>
+</div>
