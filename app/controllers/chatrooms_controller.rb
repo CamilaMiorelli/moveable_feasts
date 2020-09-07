@@ -1,6 +1,13 @@
 class ChatroomsController < ApplicationController
   def show
     @message = Message.new
-    @chatroom = Chatroom.find_by(feast_id: params[:feast_id])
+    @feast = Feast.find(params[:feast_id])
+    @chatroom = @feast.chatroom
   end
+
+  def index
+    @chatrooms = Chatroom.all
+    @feasts = Feast.all
+  end
+  
 end
