@@ -7,6 +7,7 @@ class ReservationsController < ApplicationController
   def show
     @feast = Feast.find(params[:feast_id])
     @reservation = Reservation.find(params[:id])
+    @reservation = current_user.reservations.find(params[:id])
   end
 
   def create
