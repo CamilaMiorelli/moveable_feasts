@@ -45,7 +45,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       price: 20,
       available: true,
       address: "Reguliersgracht 17, Amsterdam",
-      start_at: DateTime.new(2019, 12, 03, 18, 00, 0))
+      start_at: DateTime.new(2019, 12, 3, 18, 00, 0))
     indian.end_at = indian.start_at + 2.hours
     indian.save!
 
@@ -58,7 +58,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       price: 20,
       available: true,
       address: "Pannekoekstraat 110, Rotterdam",
-      start_at: DateTime.new(2018, 07, 11, 20, 10, 0))
+      start_at: DateTime.new(2018, 7, 11, 20, 10, 0))
     cuban.end_at = cuban.start_at + 2.hours
     cuban.save!
 
@@ -71,7 +71,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       price: 10,
       available: true,
       address: "Ijsbaanpad 8, Amsterdam",
-      start_at: DateTime.new(2019, 03, 06, 16, 0, 0))
+      start_at: DateTime.new(2019, 3, 6, 16, 0, 0))
     casual.end_at = casual.start_at + 2.hours
     casual.save!
 
@@ -84,7 +84,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       price: 0,
       available: true,
       address: "Vondel Park, Amsterdam",
-      start_at: DateTime.new(2020, 01, 10, 07, 30, 0))
+      start_at: DateTime.new(2020, 1, 10, 7, 30, 0))
     picnic.end_at = picnic.start_at + 2.hours
     picnic.save!
 
@@ -97,10 +97,74 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       price: 10,
       available: true,
       address: "Prinsengracht 10, Amsterdam",
-      start_at: DateTime.new(2020, 01, 10, 07, 30, 0))
+      start_at: DateTime.new(2020, 01, 10, 7, 30, 0))
     french.end_at = french.start_at + 2.hours
     french.save!
 
+    french = Feast.new(
+      title: "Thursday Night Patisserie",
+      description: "I am an amateur pastry chef, I love to practice my skills with small cakes and madelienes",
+      meal_type: "Dessert",
+      user: user,
+      guest_limit: 3,
+      price: 10,
+      available: true,
+      address: "Prinsengracht 10, Amsterdam",
+      start_at: DateTime.new(2020, 9, 7, 7, 30, 0))
+    french.end_at = french.start_at + 2.hours
+    french.save!
+
+    french = Feast.new(
+      title: "Thursday Night Patisserie",
+      description: "I am an amateur pastry chef, I love to practice my skills with small cakes and madelienes",
+      meal_type: "Dessert",
+      user: user,
+      guest_limit: 3,
+      price: 10,
+      available: true,
+      address: "Prinsengracht 10, Amsterdam",
+      start_at: DateTime.new(2020, 9, 8, 7, 30, 0))
+    french.end_at = french.start_at + 2.hours
+    french.save!
+
+    french = Feast.new(
+      title: "Thursday Night Patisserie",
+      description: "I am an amateur pastry chef, I love to practice my skills with small cakes and madelienes",
+      meal_type: "Dessert",
+      user: user,
+      guest_limit: 3,
+      price: 10,
+      available: true,
+      address: "Prinsengracht 10, Amsterdam",
+      start_at: DateTime.new(2020, 9, 9, 7, 30, 0))
+    french.end_at = french.start_at + 2.hours
+    french.save!
+
+    french = Feast.new(
+      title: "Thursday Night Patisserie",
+      description: "I am an amateur pastry chef, I love to practice my skills with small cakes and madelienes",
+      meal_type: "Dessert",
+      user: user,
+      guest_limit: 3,
+      price: 10,
+      available: true,
+      address: "Prinsengracht 10, Amsterdam",
+      start_at: DateTime.new(2020, 9, 10, 7, 30, 0))
+    french.end_at = french.start_at + 2.hours
+    french.save!
+
+    french = Feast.new(
+      title: "Thursday Night Patisserie",
+      description: "I am an amateur pastry chef, I love to practice my skills with small cakes and madelienes",
+      meal_type: "Dessert",
+      user: user,
+      guest_limit: 3,
+      price: 10,
+      available: true,
+      address: "Prinsengracht 10, Amsterdam",
+      start_at: DateTime.new(2020, 9, 11, 7, 30, 0))
+    french.end_at = french.start_at + 2.hours
+    french.save!
 
   file1 = URI.open("https://source.unsplash.com/featured/?food, indian")
   file2 = URI.open("https://source.unsplash.com/featured/?food, cuban")
