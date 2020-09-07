@@ -62,6 +62,7 @@
             </div>
             <%= simple_form_for [@feast, Reservation.new] do |f| %>
                 <div class="modal-body">
+                    <%= f.input :number_of_guests, collection: 1..4 %>
                     <%= f.input :comment %>
                     </div>
                     <div class="modal-footer">
