@@ -12,12 +12,9 @@ class Feast < ApplicationRecord
   validates :end_at, presence: true
   has_one_attached :photo
   after_create :create_chatroom
-<<<<<<< HEAD
   monetize :price_cents
-=======
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
->>>>>>> b4994fed248e67c86fa1e936558816f1252fde6e
 
   def host?(user)
     self.user == user
@@ -27,11 +24,5 @@ class Feast < ApplicationRecord
     chatroom = Chatroom.new(feast: self)
     chatroom.save!
   end
-<<<<<<< HEAD
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
-=======
-  
->>>>>>> b4994fed248e67c86fa1e936558816f1252fde6e
 end
