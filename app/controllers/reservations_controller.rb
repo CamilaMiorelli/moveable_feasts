@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.new(reservation_params)
       @reservation.feast = @feast
       @reservation.user = current_user
-      @reservation.amount = @feast.price_cents * params[:feast][:number_of_guests]
+      @reservation.amount = @feast.price_cents * params[:reservation][:number_of_guests]
       @reservation.state = "Pending"
       @reservation.save
 
@@ -32,6 +32,7 @@ class ReservationsController < ApplicationController
           cancel_url: feast_reservation_path(@feast, @reservation)
         )
        @reservation.checkout_session_id = session.id
+       redirect_to new_feast_reservation_payment_path(@feast, @reservation, @payment)
       if @reservation.update
         redirect_to feast_path(@feast, @reservation)
         flash.notice = "Your reservation has been sent to the host."
