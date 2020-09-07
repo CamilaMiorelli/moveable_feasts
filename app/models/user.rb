@@ -18,5 +18,15 @@ class User < ApplicationRecord
   def host?(feast)
     feast.user == self
   end
+
+
+  def guest?(feast)
+    reservation = Reservation.find_by(feast_id: feast.id, user_id: self.id)
+    if reservation.present?
+      reservation.status == "Accepted"
+    else
+      false
+    end
+  end
   
 end
