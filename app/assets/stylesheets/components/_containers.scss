@@ -30,7 +30,10 @@
   padding-top: 50px;
   grid-gap: 16px;
 }
-
+.index-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .default-index-container {
   max-width: 1200px;
   margin: 0 auto;
