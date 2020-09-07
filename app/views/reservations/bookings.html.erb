@@ -6,6 +6,8 @@
       </h1>
         <%= reservation.feast.title %>
         </br>
+        <%#= reservation.user.first_name %> <%#= reservation.user.last_name %>
+        </br>
         <%= reservation.feast.description %>
         </br>
         <%= reservation.feast.meal_type %>
@@ -19,6 +21,9 @@
         <%= reservation.feast.end_at.strftime("%b %e, %l:%M %p") %>
         </br>
         <%= reservation.feast.available %>
+        </br>
+        Number of guests: <%= reservation.number_of_guests %>
+      
 
       <div class="status">
       <% if params[:action] == "incoming_bookings" %>
