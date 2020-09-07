@@ -1,7 +1,7 @@
 class Feast < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :payments, through: :reservations, source: :feast, class_name: "Feast"
-  has_one :chatroom
+  has_one :chatroom, dependent: :destroy
   belongs_to :user
   validates :title, length: { minimum: 3 }
   validates :description, length: { minimum: 10 }
