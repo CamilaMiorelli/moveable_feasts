@@ -4,7 +4,6 @@
   flex-grow: 1;
   grid-gap: 10px;
   padding-right: 10px;
-
 }
 .card-inner p {
   margin: 0;
@@ -37,12 +36,14 @@
   margin-bottom: 5px;
   border-radius:  10px 0 0 0 ;
 }
+
 .default-card-title h4{
   display: flex;
   padding: 10px 20px 0 20px;
   justify-content: space-between;
   font-weight: bold;
 }
+
 .default-card-mealtype:before {
   content: "\f2e7";
   font-family: "Font Awesome 5 Free";
@@ -80,8 +81,6 @@
 .default-card-text {
   font-size: 16px;
 }
-
-
 
 .default-card-body:hover::before {
   pointer-events: none;

@@ -9,13 +9,15 @@
     z-index:1;
 }
 
+.indexcard-search {
+  background-color: #c87d41;
+}
+
 .index-search {
   opacity: 0.8;
   display: flex;
   justify-content: center;
-  margin: 20px;
-  border-bottom: 3px solid black;
-  padding-bottom: 20px;
+  padding: 20px;
   position: inherit;
   &:hover {
     opacity: 1;
