@@ -9,6 +9,7 @@
   
   <div>
     <h4><%= feast.title %> </h4>
+
     <p class="default-card-text"> <%= feast.description %></p>
     <p class="default-card-text"> <%= feast.meal_type %></p>
     
@@ -27,6 +28,12 @@
   </div>
   
   <%= link_to "availabile now", "#", class: "bttn bttn1 bttn-index" %> 
+
+  <% if current_user.photo.attached? %>
+    <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+  <% else %>
+    <%= current_user.full_name %>
+  <% end %>
   
   </div>
 </div>
