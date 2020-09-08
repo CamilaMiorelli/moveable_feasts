@@ -13,16 +13,10 @@
   text-align: center;
   width: 100%;
   height: 100%;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 10px 0 180px 0;
   position: relative;
   background-color: #F1EBE4;
-}
-
-.index-avatar {
-  position: absolute;
-  width: 75px;
-  right: 15px;
 }
 
 .card-inner {
@@ -54,34 +48,9 @@
   content: "\f2e7";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  margin: 0 10px;
+  margin: 10px;
 }
 
-.default-card-mealtype {
-  display: flex;
-}
-
-.no-img-avatar {
-  position: absolute;
-  right: 20px;
-  top: 10px;
-  width: 75px;
-}
-.default-card-price {
-  position: absolute;
-  font-weight: bolder;
-  text-align: right;
-  color: green;
-  padding-right: 10px;
-  font-size: 24px;
-  right: 20px;
-}
-
-.no-img-price {
-  position: absolute;
-  top: 80px;
-
-}
 .card-paragraph {
   text-align: left;
   padding-left: 15px;
@@ -120,7 +89,7 @@
   bottom: 0;
   left: 0;
   height: 100%;
-  border: 2px solid #50514F;
+  border: 3px solid #50514F;
   border-radius: 10px 0 180px 0;
   z-index: 10;
   width: 100%;
@@ -139,7 +108,7 @@
   bottom: 0;
   left: 0;
   height: 100%;
-  border: 2px solid #b4b4b4;
+  border: 5px solid #c87d41;
   border-radius: 10px 0 180px 0;
   z-index: 10;
   width: 100%;
