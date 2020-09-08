@@ -63,6 +63,7 @@ class FeastsController < ApplicationController
 
   def create
     @feast = Feast.new(strong_feasts_params)
+    @feast.price_cents = @feast.price_cents * 100
     @feast.user = current_user
     @feast.save
     if @feast.save

@@ -10,7 +10,7 @@
   margin: 40px auto;
   border: 2px solid transparent;
   border-radius: 5px;
-  box-shadow: -1px 0px 19px 0px rgba(0,0,0,0.75);
+  background-color: #F1EBE4;
   position: relative;
 }
 .login-container {
@@ -35,10 +35,8 @@
   margin: 0 auto;
 }
 .default-index-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 400px;
+ padding: 20px;
+  display: flex;
 }
 
 @media(max-width: 575px) {

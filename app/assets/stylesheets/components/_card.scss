@@ -1,60 +1,96 @@
-.default-card-index {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
+.default-cards-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-grow: 1;
+  grid-gap: 10px;
+  padding-right: 10px;
 }
+.card-inner p {
+  margin: 0;
+}
+
 .default-card-body {
   text-align: center;
-  width: 450px;
-  height: 450px;
+  width: 100%;
+  height: 100%;
   border: 2px solid black;
-  margin: 70px auto;
-  padding: 10px;
+  border-radius: 10px 0 180px 0;
   position: relative;
-  transform: rotate(-45deg);
   background-color: #F1EBE4;
 }
 
 .card-inner {
   display: flex;
-  max-width: 350px;
-  transform: rotate(45deg);
+  color: #50514F;
   text-align: center;
-  margin: 0 auto;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  left: 30px;
-  bottom: 20px;
-}
-
-.bttn-index {
-  margin-left:170px;
-  padding-top: 40px;
+  padding-bottom: 10px;
 }
 
 .index-img {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
   margin-bottom: 5px;
+  border-radius:  10px 0 0 0 ;
+}
+
+.default-card-title h4{
+  display: flex;
+  padding: 10px 20px 0 20px;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.default-card-mealtype:before {
+  content: "\f2e7";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin: 10px;
+}
+
+.card-paragraph {
+  text-align: left;
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+
+.default-card-guests:before {
+  content: "\f500";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin: 10px;
+}
+
+.default-card-address:before {
+  content: "\f5a0";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin: 10px;
+}
+
+.default-card-time:before {
+  content: "\f017";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin: 10px;
 }
 
 .default-card-text {
-  font-size: 12px;
+  font-size: 16px;
 }
 
-.default-card-title {
-  font-weight: bold;
-  font-size: 30px;
-  padding: 10px;
-}
-
-.default-card-body:before {
+.default-card-body:hover::before {
+  pointer-events: none;
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   height: 100%;
   border: 3px solid #50514F;
+  border-radius: 10px 0 180px 0;
   z-index: 10;
   width: 100%;
   clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
@@ -62,17 +98,18 @@
   animation-duration: 1800ms;
   animation-delay: 0ms;
   animation-iteration-count: infinite;
-  // animation-direction: alternate;
   animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.default-card-body::after {
+.default-card-body:hover::after {
+    pointer-events: none;
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   height: 100%;
-  border: 5px solid #EDBD82;
+  border: 5px solid #c87d41;
+  border-radius: 10px 0 180px 0;
   z-index: 10;
   width: 100%;
   color: rgb(122, 122, 122);
@@ -85,7 +122,6 @@
   animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-// before: clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
 @keyframes borderRotation {
   0% {
       clip-path:polygon(0% 100%, 0% 100%, 0% 100%)
@@ -98,20 +134,10 @@
 @keyframes borderAfter {
   0% {
     clip-path:polygon(0% 100%, 0% 100%, 0% 100%)
-      // clip-path: polygon(100% 0%, 100% 200%, -100% 0%);
   }
   100% {
     clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
-  // clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
   }
 }
-// after: clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
-// keyframe
-// 0% {
-      // clip-path: polygon(100% 0%, 100% 200%, -100% 0%);
-// } 
 
-// 100% {
-  // clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
-// }
 

@@ -1,5 +1,5 @@
 .show-card {
-  padding: 40px;
+  padding: 20px;
 }
 
 .show-card-titles {
@@ -10,6 +10,7 @@
 .show-card-title {
   font-weight: bold;
   font-size: 30px;
+  align-items: center;
 }
 
 .default-card-desc {
@@ -84,4 +85,33 @@
 .show-meal-type, .show-address, .show-start-at, .show-end-at {
   
   height: 100%;
+}
+
+.host-choice {
+  display: flex;
+}
+
+.reserve-name {
+  margin: 0px 5px;
+
+}
+
+.bttn-choice button{
+  margin: 5px;
+}
+
+.bttn-host {
+  margin: 15px 5px;
+  display: block;
+}
+
+.bttn-status {
+  margin: 15px 5px;
+  display: block;
+  color: #EAE1D7;
+}
+
+.reserve-fullname {
+  font-weight: bold;
+  margin: 5px;
 }

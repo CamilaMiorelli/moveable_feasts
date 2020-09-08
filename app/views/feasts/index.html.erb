@@ -1,10 +1,10 @@
 <div>
-  <div>
+  <div class = "indexcard-search">
     <%= render 'shared/search', class: "index-container" %>
     </div>
 </div>
 <div class="default-index-container">
-<div>
+<div class = "default-cards-index">
 <% @feasts.each do |feast| %>
         <%= render "shared/indexcard", feast: feast %>
 <% end %>
