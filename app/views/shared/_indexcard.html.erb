@@ -1,8 +1,3 @@
-<%# <div class = "bttn-index">
-<%= link_to "availabile now", feast_path(feast), class: "bttn1 bttn" %>
-<//div>
-
-
 <div class="default-card-index">
 <div class="default-card-body">
 
@@ -12,10 +7,11 @@
       <%= cl_image_tag feast.photo.key, crop: :fill, class: "index-img" %>
     <% end %>
     <div class = "default-card-title">
-    <h4><%= feast.title %><strong>€<%= feast.price %></strong></h4>
+    <h4><%= feast.title %></h4>
     </div>
     <div class = "card-paragraph">
-    <p class="default-card-mealtype"><%= feast.meal_type %></p>
+    <p class="default-card-mealtype"><%= feast.meal_type %>  <span class = "default-card-price <%= feast.photo.attached? ? 'yes-img' : 'no-img-price' %>
+    ">€<%= feast.price %></span></p>
     <p class="default-card-guests"><%= feast.guest_limit %></p>
     <p class="default-card-address"> <%= feast.address %></p>
     <p class="default-card-time"> <%= feast.start_at %></p>
@@ -23,7 +19,11 @@
     </div>
     </div>
     <%= link_to "available now", feast_path(feast), class: "bttn1 bttn" %>
-  
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar index-avatar #{feast.photo.attached? ? 'yes' : 'no-img-avatar'}" %>
+    <% else %>
+      <%= current_user.full_name %>
+    <% end %>
   </div>
   </div>
 </div>
