@@ -51,14 +51,14 @@ class FeastsController < ApplicationController
     # else
     #   @feasts = Feast.all
     end
-      @markers = @feasts.geocoded.map do |feast|
-        {
-          lat: feast.latitude,
-          lng: feast.longitude
-          # infoWindow: render_to_string(partial: "infowindow", locals: { feast: feast }),
-          # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
-        }
-      end
+    @markers = @feasts.geocoded.map do |feast|
+      {
+        lat: feast.latitude,
+        lng: feast.longitude
+        # infoWindow: render_to_string(partial: "infowindow", locals: { feast: feast }),
+        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }
+    end
   end
 
   def create
