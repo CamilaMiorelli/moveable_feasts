@@ -46,7 +46,6 @@
 
 <h6><strong>No. guests/max-limit: </strong>  <span><%= @feast.reservations.where(status: "Accepted").sum(&:number_of_guests)  %> / <%= @feast.guest_limit  %></span></h6>
 
-
 <div class="modal" tabindex="-1" role="dialog" id="reservation-popup">
   <div class="modal-dialog" role="document">
       <div class="modal-content">

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
+  resources :users, :only => [:show] do
+    resources :reviews, only: [:new, :create]
+  end
   root to: 'feasts#home'
   resources :feasts do
     resources :reservations, only: [ :new, :create, :show, :update] do

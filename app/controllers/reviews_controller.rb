@@ -7,11 +7,12 @@ class ReviewsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @review = Review.new(review_params)
-    @review.feast = @review
+    @review.user = @user
     if @review.save
-      redirect_to feast_path(@feast)
+      redirect_to user_path(@user)
+      flash.notice = "Your review has been sent to the user"
     else
-      render 'feast/show'
+      render 'user/show'
     end
   end
 

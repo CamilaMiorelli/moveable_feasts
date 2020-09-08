@@ -1,5 +1,14 @@
 import mapboxgl from 'mapbox-gl';
 
+const initMapbox = () => {
+  const mapElement = document.getElementById('map');
+  if (mapElement) {
+    const map = buildMap(mapElement);
+    const markers = JSON.parse(mapElement.dataset.markers);
+    addMarkersToMap(map, markers);
+    fitMapToMarkers(map, markers);
+  }
+};
 
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -25,14 +34,5 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
 };
 
-const initMapbox = () => {
-  const mapElement = document.getElementById('map');
-  if (mapElement) {
-    const map = buildMap(mapElement);
-    const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
-  }
-};
 
 export { initMapbox };
