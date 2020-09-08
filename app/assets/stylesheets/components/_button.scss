@@ -6,14 +6,12 @@
   margin: 10px;
   transition: 0.1s;
   position: relative;
-  overflow: hidden;
+  overflow: initial;
   text-transform: uppercase;
   font-size: 0.75rem;
   letter-spacing: 0.16em;
   font-weight: bold;
 }
-
-
 
 .bttn-wide {
   display: block;
