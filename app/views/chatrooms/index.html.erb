@@ -1,8 +1,12 @@
 <div class="chatrooms-index">
   <% @all_feasts.each do |feast| %>
     <div class="choose-chat">
+      <div class="choose-title">
         <%= feast.title %>
-        <%=  link_to "chat", feast_chatrooms_path(feast, anchor: "new_message"), class:'bttn btn-chat'%>
+      </div>
+      <div class="choose-btn">
+        <%=  link_to "chat", feast_chatrooms_path(feast, anchor: "new_message"), class:'bttn bttn1'%>
+      </div>
     </div>
   <% end %>
 </div>
