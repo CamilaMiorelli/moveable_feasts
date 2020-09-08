@@ -16,10 +16,10 @@ class FeastsController < ApplicationController
     #   @feast.reservations.to_a.sum(&:number_of_guests)
     # end
     @markers =
-        {
+        [{
           lat: @feast.latitude,
           lng: @feast.longitude
-        }
+        }]
   end
 
   def home
