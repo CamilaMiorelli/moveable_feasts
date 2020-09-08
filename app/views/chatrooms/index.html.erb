@@ -1,3 +1,12 @@
-<% @all_feasts.each do |feast| %>
-<li> <%= feast.title %> <%=  link_to "CHAT", feast_chatrooms_path(feast, anchor: "new_message")%></li>
-<% end %>
+<div class="chatrooms-index">
+  <% @all_feasts.each do |feast| %>
+    <div class="choose-chat">
+      <div class="choose-title">
+        <%= feast.title %>
+      </div>
+      <div class="choose-btn">
+        <%=  link_to "chat", feast_chatrooms_path(feast, anchor: "new_message"), class:'bttn bttn1'%>
+      </div>
+    </div>
+  <% end %>
+</div>

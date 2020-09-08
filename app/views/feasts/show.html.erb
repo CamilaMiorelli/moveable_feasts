@@ -33,7 +33,7 @@
 <%= @feast.description %>
 </div>
 <div class= "show-price">
-<p>€<%= @feast.price_cents %></p>
+<p><%= humanized_money_with_symbol @feast.price %></p>
 </div>
 </div>
 <div class = "showcard-and-map">
