@@ -7,11 +7,11 @@
         <span><strong class="bold">We expect to finish by: </strong><%= @feast.end_at.strftime("%I:%M%p") %></span>
       </div>
       <% @chatroom.messages.each do |message| %>
-        <div id="user-message"><%= render "message", message: message %></div>
+        <%= render "message", message: message %>
       <% end %>
   </div>
   <%= simple_form_for [ @message ], url: feast_chatrooms_messages_path(@feast), remote: true do |f| %>
     <%= f.input :content, label: false, placeholder: "Send a message to #{@chatroom.feast.title}", as: :string, input_html: { class: "index-search" } %>
-    <%= f.button :submit, 'say something', class: 'bttn' %>
+    <%= f.button :submit, 'say something', class: 'bttn bttn-wide' %>
   <% end %>
 </div>
