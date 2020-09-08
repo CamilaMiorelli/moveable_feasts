@@ -15,7 +15,7 @@ class FeastsController < ApplicationController
     # if @reservation == "Accepted"
     #   @feast.reservations.to_a.sum(&:number_of_guests)
     # end
-    @markers =
+    @marker =
         [{
           lat: @feast.latitude,
           lng: @feast.longitude
