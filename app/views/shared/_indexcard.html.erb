@@ -1,26 +1,29 @@
 <%# <div class = "bttn-index">
 <%= link_to "availabile now", feast_path(feast), class: "bttn1 bttn" %>
 <//div>
+
+
 <div class="default-card-index">
 <div class="default-card-body">
+
 <div class = "card-inner">
-  <div>
-    <h4><%= feast.title %> </h4>
-    <p class="default-card-text"> <%= feast.description %></p>
-    <p class="default-card-text"> <%= feast.meal_type %></p>
-    
-    <p class="default-card-text"> No. of guests: <%= feast.guest_limit %> | <%= feast.price %>€</p>
-    
-    <%= link_to feast_path(feast) do %>
+<div>
     <% if feast.photo.present? %>
-      <%= cl_image_tag feast.photo.key, height: 100, class:"index-img", 
-      width: 200, crop: :fill %>
+      <%= cl_image_tag feast.photo.key, crop: :fill, class: "index-img" %>
     <% end %>
-  <% end %>
-    <p class="default-card-text"> <%= feast.address %></p>
-    <p class="default-card-text"> <%= feast.start_at %></p>
-    <p class="default-card-text"> <%= feast.status %></p>
-  </div>
+    <div class = "default-card-title">
+    <h4><%= feast.title %><strong>€<%= feast.price %></strong></h4>
+    </div>
+    <div class = "card-paragraph">
+    <p class="default-card-mealtype"><%= feast.meal_type %></p>
+    <p class="default-card-guests"><%= feast.guest_limit %></p>
+    <p class="default-card-address"> <%= feast.address %></p>
+    <p class="default-card-time"> <%= feast.start_at %></p>
+    <//p class="default-card-text"> <%#= feast.status %><//p>
+    </div>
+    </div>
+    <%= link_to "available now", feast_path(feast), class: "bttn1 bttn" %>
+  
   </div>
   </div>
 </div>
