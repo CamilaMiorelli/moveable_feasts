@@ -1,46 +1,48 @@
-<%= render "shared/user_avatar" %>
-</br>
-</br>
-<%= @user.full_name %>
-</br>
-<%= @user.gender %>
-</br>
-<%= @user.bio %>
-</br>
-</br>
-</br>
-<%= render "shared/fullreview" %>
-</br>
-</br>
+<div class="userprofile">
+  <div class="user-info">
+    <%= render "shared/user_avatar" %>
+    <br>
+    <span><%= @user.full_name %><%= @user.gender %></span>
+    <br>
+    <br>
+    <%= @user.bio %>
+  </div>
 
-<a class="bttn-dark bttn2" data-toggle="modal" data-target="#review-popup">
-    Write a Review
-</a>
+  <div class="reviews">
+    <%= render "shared/fullreview" %>
+
+    <a class="bttn-dark bttn2" data-toggle="modal" data-target="#review-popup">
+      Write a Review
+    </a>
+  </div>
+</div>
 
 
 
 <div class="modal" tabindex="-1" role="dialog" id="review-popup">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Review <%= current_user.full_name %> </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                <%= form_for [@user, Review.new] do |f| %>
-                    <div class="modal-body">
-                        <%= f.select :rating, 1..10 %>
-                        </br>
-                        <h3>Review Title</h3>
-                        <%= f.text_field :review_title, placeholder: "for example: AWESOME PERSON, or PIECE OF SHITE" %>
-                        </br>
-                        <h3>Review</h3>
-                        <%= f.text_field :review_description, placeholder: "Give the user some positive feedback, like HE FUCKING BURNS EVERYTHING!" %>
-                    </div>
-                    <div class="modal-footer">
-                        <%= f.submit "Submit Review" %>
-                    </div>
-                <% end %>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title">Review <%= current_user.full_name %> </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+  <%= form_for [@user, Review.new] do |f| %>
+      <div class="modal-body">
+        <%= f.select :rating, 1..10 %>
+        </br>
+        <h3>Review Title</h3>
+        <%= f.text_field :review_title, placeholder: "for example: AWESOME PERSON, or PIECE OF SHITE" %>
+        </br>
+        <h3>Review</h3>
+        <%= f.text_field :review_description, placeholder: "Give the user some positive feedback, like HE FUCKING BURNS EVERYTHING!" %>
+      </div>
+        <div class="modal-footer">
+        <%= f.submit "Submit Review" %>
         </div>
+      <% end %>
     </div>
+  </div>
+</div>
+
