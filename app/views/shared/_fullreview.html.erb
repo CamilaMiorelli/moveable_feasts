@@ -1,4 +1,7 @@
 <% @user.reviews.each do |review| %>
+    Reviewer:
+    <%= review.reviewer.full_name %>
+    </br>
     <%= review.rating %>
     </br>
     <%= review.review_title %>
