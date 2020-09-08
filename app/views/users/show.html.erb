@@ -2,7 +2,7 @@
   <div class="user-info">
     <%= render "shared/user_avatar" %>
     <br>
-    <span><%= @user.full_name %><%= @user.gender %></span>
+    <span><%="#{@user.full_name}" " | " "#{@user.gender}" %></span>
     <br>
     <br>
     <%= @user.bio %>

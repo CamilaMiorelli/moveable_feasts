@@ -34,17 +34,17 @@ class ReservationsController < ApplicationController
        @reservation.update(checkout_session_id: session.id)
        flash.notice = "Worked"
        redirect_to new_feast_reservation_payment_path(@feast, @reservation)
-    #   if @reservation.update
-    #     redirect_to feast_path(@feast, @reservation)
-    #     flash.notice = "Your reservation has been sent to the host."
-    #   else
-    #     render :new
-    #     flash.alert = "Your reservation did not save."
-    #   end
-    # else
-    #   render :new
-    #   flash.alert = "The feast is full"
-    # end
+
+      if @reservation.update
+        redirect_to feast_path(@feast, @reservation)
+        flash.notice = "Your reservation has been sent to the host."
+      else
+        render "feasts/show"
+        flash.alert = "Your reservation did not save."
+      end
+    else
+      render "feasts/show"
+      flash.alert = "The feast is full"
     end
   end
 
