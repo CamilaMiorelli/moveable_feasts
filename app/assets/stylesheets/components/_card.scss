@@ -1,8 +1,7 @@
 .default-card-index {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 .default-card-body {
   text-align: center;
@@ -35,66 +34,20 @@
   padding-top: 40px;
 }
 
-.show-card {
-  padding: 40px;
-}
 .index-img {
   margin-bottom: 5px;
 }
 
-.show-card-titles {
-  display: flex;
-  justify-content: space-between;
-}
-
-.show-card-title {
-  font-weight: bold;
-  font-size: 30px;
-  padding: 10px;
-}
-.show-card-text {
-  display: flex;
-  border: 1px solid rgb(193, 193, 193);
-  padding: 10px;
-  justify-content: space-between;
-}
 .default-card-text {
   font-size: 12px;
-  
 }
 
-.price-desc {
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.show-img {
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-}
-
-.show-price {
-  font-weight: bold;
-  font-size: 30px;
-}
-.show-meal-type, .show-address, .show-start-at, .show-end-at {
-  
-  height: 100%;
-  padding: 0px 15px;
-}
-.default-card-desc {
-  padding: 10px;
-  font-size: 18px;
-}
 .default-card-title {
   font-weight: bold;
   font-size: 30px;
   padding: 10px;
 }
+
 .default-card-body:before {
   content: "";
   position: absolute;
@@ -129,31 +82,29 @@
   animation-duration: 1800ms;
   animation-delay: 0ms;
   animation-iteration-count: infinite;
-  
   animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-
 // before: clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
 @keyframes borderRotation {
-0% {
-    clip-path:polygon(0% 100%, 0% 100%, 0% 100%)
- }
- 100% {
-  clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
+  0% {
+      clip-path:polygon(0% 100%, 0% 100%, 0% 100%)
+  }
+  100% {
+    clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
+  }
 }
- }
 
 @keyframes borderAfter {
-0% {
-  clip-path:polygon(0% 100%, 0% 100%, 0% 100%)
-    // clip-path: polygon(100% 0%, 100% 200%, -100% 0%);
- }
- 100% {
-   clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
+  0% {
+    clip-path:polygon(0% 100%, 0% 100%, 0% 100%)
+      // clip-path: polygon(100% 0%, 100% 200%, -100% 0%);
+  }
+  100% {
+    clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
   // clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
+  }
 }
- }
 // after: clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
 // keyframe
 // 0% {
