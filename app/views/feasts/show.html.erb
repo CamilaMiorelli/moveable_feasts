@@ -34,53 +34,46 @@
 <p>€<%= @feast.price %></p>
 </div>
 </div>
+<div class = "showcard-and-map">
 <div class = "show-card-text">
-<div class = "show-meal-type">
-<%= @feast.meal_type %>
-</div>
+<h6><strong>Meal Type: </strong>  <span class = "show-meal-type"><%= @feast.meal_type %></span></h6>
 <%# Method for defining distance to the party is not yet available. %>
-<div class= "show-address">
-<%= @feast.address %>
-</div>
-<div class= "show-start-at">
-<%= @feast.start_at.strftime("%b %e, %l:%M %p") %>
-</div>
-<div class= "show-end-at">
-<%= @feast.end_at.strftime("%b %e, %l:%M %p") %>
-</div>
+<h6><strong>Address: </strong>  <span class= "show-address"><%= @feast.address %></span></h6>
 
-<%= @feast.reservations.where(status: "Accepted").sum(&:number_of_guests) %> / <%= @feast.guest_limit  %>
+<h6><strong>Starting time: </strong>  <span class= "show-start-at"><%= @feast.start_at.strftime("%b %e, %l:%M %p") %></span></h6>
 
+<h6><strong>Ending time: </strong>  <span class= "show-end-at"><%= @feast.end_at.strftime("%b %e, %l:%M %p") %></span></h6>
 
+<h6><strong>No. guests/max-limit: </strong>  <span><%= @feast.reservations.where(status: "Accepted").sum(&:number_of_guests)  %> / <%= @feast.guest_limit  %></span></h6>
 
 <div class="modal" tabindex="-1" role="dialog" id="reservation-popup">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Any questions for the host?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <%= simple_form_for [@feast, Reservation.new] do |f| %>
-                <div class="modal-body">
-                    <%= f.input :number_of_guests, collection: 1..4 %>
-                    <%= f.input :comment %>
-                    </div>
-                    <div class="modal-footer">
-                    <%= f.submit "Submit Reservation" %>
-                    </div>
-            <% end %>
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Any questions for the host?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+          <%= simple_form_for [@feast, Reservation.new] do |f| %>
+        <div class="modal-body">
+          <%= f.input :number_of_guests, collection: 1..4 %>
+          <%= f.input :comment %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Submit Reservation" %>
+        </div>
+      <% end %>
     </div>
+  </div>
 </div>
-
 
 </div>
 <div id="map"
     style="width: 100%; height: 400px;"
     data-markers="<%= @marker.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 </div>
 </div>
 </div>
