@@ -1,0 +1,5 @@
+<% if @user.photo.attached? %>
+    <%= cl_image_tag @user.photo.key %>
+<% else %>
+    No picture to be displayed
+<% end %>
