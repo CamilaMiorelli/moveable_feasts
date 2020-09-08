@@ -1,117 +1,112 @@
+.default-cards-index {
+  display: grid;
+  grid-auto-columns: 1fr 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+
+}
 .default-card-index {
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
+ 
+  
 }
-.default-card-body {
-  text-align: center;
-  width: 450px;
-  height: 450px;
-  border: 2px solid black;
-  margin: 70px auto;
-  padding: 10px;
-  position: relative;
-  transform: rotate(-45deg);
-  background-color: #F1EBE4;
-}
-
-.card-inner {
-  display: flex;
-  max-width: 350px;
-  transform: rotate(45deg);
-  text-align: center;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 30px;
-  bottom: 20px;
-}
-
-.bttn-index {
-  margin-left:170px;
-  padding-top: 40px;
-}
-
-.index-img {
-  margin-bottom: 5px;
-}
-
-.default-card-text {
-  font-size: 12px;
-}
-
-.default-card-title {
-  font-weight: bold;
-  font-size: 30px;
-  padding: 10px;
-}
-
-.default-card-body:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  border: 3px solid #50514F;
-  z-index: 10;
-  width: 100%;
-  clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
-  animation-name: borderRotation;
-  animation-duration: 1800ms;
-  animation-delay: 0ms;
-  animation-iteration-count: infinite;
-  // animation-direction: alternate;
-  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-.default-card-body::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  border: 5px solid #EDBD82;
-  z-index: 10;
-  width: 100%;
-  color: rgb(122, 122, 122);
-  clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
-  animation-name: borderAfter;
-  animation-direction: alternate;
-  animation-duration: 1800ms;
-  animation-delay: 0ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-// before: clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
-@keyframes borderRotation {
-  0% {
-      clip-path:polygon(0% 100%, 0% 100%, 0% 100%)
-  }
-  100% {
-    clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
-  }
-}
-
-@keyframes borderAfter {
-  0% {
-    clip-path:polygon(0% 100%, 0% 100%, 0% 100%)
-      // clip-path: polygon(100% 0%, 100% 200%, -100% 0%);
-  }
-  100% {
-    clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
-  // clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
-  }
-}
-// after: clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
-// keyframe
-// 0% {
-      // clip-path: polygon(100% 0%, 100% 200%, -100% 0%);
-// } 
-
-// 100% {
-  // clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
+// .default-card-body {
+//   text-align: center;
+//   width: 450px;
+//   height: 450px;
+//   border: 2px solid black;
+//   margin: 70px auto;
+//   padding: 10px;
+//   position: relative;
+//   transform: rotate(-45deg);
+//   background-color: #F1EBE4;
 // }
+
+// .card-inner {
+//   display: flex;
+//   max-width: 350px;
+//   transform: rotate(45deg);
+//   text-align: center;
+//   margin: 0 auto;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   align-items: center;
+//   position: absolute;
+//   left: 30px;
+//   bottom: 20px;
+// }
+
+// .bttn-index {
+//   margin-left:170px;
+//   padding-top: 40px;
+// }
+
+// .index-img {
+//   margin-bottom: 5px;
+// }
+
+// .default-card-text {
+//   font-size: 12px;
+// }
+
+// .default-card-title {
+//   font-weight: bold;
+//   font-size: 30px;
+//   padding: 10px;
+// }
+
+// .default-card-body:before {
+//   content: "";
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   height: 100%;
+//   border: 3px solid #50514F;
+//   z-index: 10;
+//   width: 100%;
+//   clip-path: polygon(100% 0%, 100% 0%, 100% 0%);
+//   animation-name: borderRotation;
+//   animation-duration: 1800ms;
+//   animation-delay: 0ms;
+//   animation-iteration-count: infinite;
+//   animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+// }
+
+// .default-card-body::after {
+//   content: "";
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   height: 100%;
+//   border: 5px solid #EDBD82;
+//   z-index: 10;
+//   width: 100%;
+//   color: rgb(122, 122, 122);
+//   clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
+//   animation-name: borderAfter;
+//   animation-direction: alternate;
+//   animation-duration: 1800ms;
+//   animation-delay: 0ms;
+//   animation-iteration-count: infinite;
+//   animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+// }
+
+// @keyframes borderRotation {
+//   0% {
+//       clip-path:polygon(0% 100%, 0% 100%, 0% 100%)
+//   }
+//   100% {
+//     clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
+//   }
+// }
+
+// @keyframes borderAfter {
+//   0% {
+//     clip-path:polygon(0% 100%, 0% 100%, 0% 100%)
+//   }
+//   100% {
+//     clip-path: polygon(0% 100%, 0% -100%, 200% 100%);
+//   }
+// }
+
 
