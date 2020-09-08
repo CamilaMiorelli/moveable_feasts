@@ -11,7 +11,7 @@
     </div>
     <div class = "card-paragraph">
     <p class="default-card-mealtype"><%= feast.meal_type %>  <span class = "default-card-price <%= feast.photo.attached? ? 'yes-img' : 'no-img-price' %>
-    ">€<%= feast.price %></span></p>
+    "><%= humanized_money_with_symbol feast.price %></span></p>
     <p class="default-card-guests"><%= feast.guest_limit %></p>
     <p class="default-card-address"> <%= feast.address %></p>
     <p class="default-card-time"> <%= feast.start_at %></p>
