@@ -1,11 +1,19 @@
 <h1>#<%= @chatroom.feast.title %></h1>
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <%= @feast.description %>
+<br>
+  <span>Our address is: </span> <%= @feast.address %>
+  <br>
+  <span>We will start exactly at: </span><%= @feast.start_at %>
+  <br>
+  <span>We expect to finish by: </span><%= @feast.end_at %>
+<br>
+<br>
+
   <% @chatroom.messages.each do |message| %>
     <%= render "message", message: message %>
   <% end %>
 </div>
 <%= simple_form_for [ @message ], url: feast_chatrooms_messages_path(@feast), remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.feast.title}", as: :string %>
+  <%= f.input :content, label: false, placeholder: "Send a message to: #{@chatroom.feast.title}", as: :string %>
   <%= f.submit :submit %>
 <% end %>
