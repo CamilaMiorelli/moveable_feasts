@@ -6,6 +6,28 @@
 <div class="default-card-index">
 <div class="default-card-body">
 
+
+  <div>
+    <h4><%= feast.title %> </h4>
+    <p class="default-card-text"> <%= feast.description %></p>
+    <p class="default-card-text"> <%= feast.meal_type %></p>
+
+    <p class="default-card-text"> No. of guests: <%= feast.guest_limit %> | <%= humanized_money_with_symbol(feast.price_cents) %></p>
+
+    <%= link_to feast_path(feast) do %>
+    <% if feast.photo.present? %>
+      <%= cl_image_tag feast.photo.key, height: 100, class:"index-img",
+      width: 200, crop: :fill %>
+    <% end %>
+  <% end %>
+    <p class="default-card-text"> <%= feast.address %></p>
+    <p class="default-card-text"> <%= feast.start_at %></p>
+    <p class="default-card-text"> <%= feast.status %></p>
+  </div>
+  </div>
+
+  <%= link_to "availabile now", "#", class: "bttn bttn1 bttn-index" %>
+
 <div class = "card-inner">
 <div>
     <% if feast.photo.present? %>
@@ -23,7 +45,8 @@
     </div>
     </div>
     <%= link_to "available now", feast_path(feast), class: "bttn1 bttn" %>
-  
+
+>>>>>>> 4fa9fd496593bdd11d4c767a9cd4c676b22bce6e
   </div>
   </div>
 </div>
