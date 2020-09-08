@@ -1,32 +1,5 @@
-<%# <div class = "bttn-index">
-<%= link_to "availabile now", feast_path(feast), class: "bttn1 bttn" %>
-<//div>
-
-
 <div class="default-card-index">
 <div class="default-card-body">
-
-
-  <div>
-    <h4><%= feast.title %> </h4>
-    <p class="default-card-text"> <%= feast.description %></p>
-    <p class="default-card-text"> <%= feast.meal_type %></p>
-
-    <p class="default-card-text"> No. of guests: <%= feast.guest_limit %> | <%= humanized_money_with_symbol(feast.price_cents) %></p>
-
-    <%= link_to feast_path(feast) do %>
-    <% if feast.photo.present? %>
-      <%= cl_image_tag feast.photo.key, height: 100, class:"index-img",
-      width: 200, crop: :fill %>
-    <% end %>
-  <% end %>
-    <p class="default-card-text"> <%= feast.address %></p>
-    <p class="default-card-text"> <%= feast.start_at %></p>
-    <p class="default-card-text"> <%= feast.status %></p>
-  </div>
-  </div>
-
-  <%= link_to "availabile now", "#", class: "bttn bttn1 bttn-index" %>
 
 <div class = "card-inner">
 <div>
@@ -34,10 +7,11 @@
       <%= cl_image_tag feast.photo.key, crop: :fill, class: "index-img" %>
     <% end %>
     <div class = "default-card-title">
-    <h4><%= feast.title %><strong>€<%= feast.price %></strong></h4>
+    <h4><%= feast.title %></h4>
     </div>
     <div class = "card-paragraph">
-    <p class="default-card-mealtype"><%= feast.meal_type %></p>
+    <p class="default-card-mealtype"><%= feast.meal_type %>  <span class = "default-card-price <%= feast.photo.attached? ? 'yes-img' : 'no-img-price' %>
+    "><%= humanized_money_with_symbol feast.price %></span></p>
     <p class="default-card-guests"><%= feast.guest_limit %></p>
     <p class="default-card-address"> <%= feast.address %></p>
     <p class="default-card-time"> <%= feast.start_at %></p>
@@ -45,8 +19,11 @@
     </div>
     </div>
     <%= link_to "available now", feast_path(feast), class: "bttn1 bttn" %>
-
->>>>>>> 4fa9fd496593bdd11d4c767a9cd4c676b22bce6e
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar index-avatar #{feast.photo.attached? ? 'yes' : 'no-img-avatar'}" %>
+    <% else %>
+      <%= current_user.full_name %>
+    <% end %>
   </div>
   </div>
 </div>
