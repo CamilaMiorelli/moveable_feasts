@@ -1,5 +1,6 @@
 <h1>#<%= @chatroom.feast.title %></h1>
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+  <%= @feast.description %>
   <% @chatroom.messages.each do |message| %>
     <%= render "message", message: message %>
   <% end %>
