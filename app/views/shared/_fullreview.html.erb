@@ -1,4 +1,7 @@
 <% @user.reviews.each do |review| %>
+    Reviewer:
+    <%= link_to "#{review.reviewer.full_name}", user_path(review.reviewer, @user) %>
+    </br>
     <%= review.rating %>
     </br>
     <%= review.review_title %>

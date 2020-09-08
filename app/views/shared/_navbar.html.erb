@@ -16,9 +16,6 @@
           <%= link_to "Chatrooms", chatrooms_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Connect", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
           <%= link_to "#", class: "nav-link dropdown", data: { toggle: "dropdown" } do %>
             <span><i class="fas fa-globe-europe"></i></span>
           <% end %>
@@ -37,7 +34,6 @@
             <%= link_to "#{current_user.first_name}", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Events", bookings_path, class: "dropdown-item" %>
             <%= link_to "Hosted Events", incoming_bookings_path, class: "dropdown-item" %>
-            <%= link_to "Settings", "#", class: "dropdown-item dropdown" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

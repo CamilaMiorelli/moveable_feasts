@@ -13,6 +13,8 @@
 <div class = "show-card-titles">
 <div class= "show-card-title">
 <%= @feast.title %>
+</br>
+<%= link_to "#{@feast.user.full_name}", user_path(@feast.user) %>
 </div>
 <% if current_user.present? %>
 
@@ -31,7 +33,7 @@
 <%= @feast.description %>
 </div>
 <div class= "show-price">
-<p>€<%= @feast.price %></p>
+<p>€<%= @feast.price_cents %></p>
 </div>
 </div>
 <div class = "showcard-and-map">

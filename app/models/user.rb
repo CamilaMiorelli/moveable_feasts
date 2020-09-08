@@ -14,6 +14,7 @@ class User < ApplicationRecord
   validates :gender, length: { minimum: 1 }
   has_one_attached :photo
   has_many :incoming_reservations, through: :feasts, source: :reservations, class_name: "Reservation"
+  has_many :reviewers, class_name: 'User', through: :reviews
 
   def all_feasts
     # events.or(feasts)
