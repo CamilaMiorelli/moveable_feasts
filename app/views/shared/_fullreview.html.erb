@@ -1,12 +1,14 @@
+<div class="reviews">
 <% @user.reviews.each do |review| %>
     Reviewer:
     <%= link_to "#{review.reviewer.full_name}", user_path(review.reviewer, @user) %>
     </br>
-    <%= review.rating %>
+    Host Rating: <%= review.rating %>
     </br>
-    <%= review.review_title %>
+    <strong><%= review.review_title %></strong>
     </br>
     <%= review.review_description %>
     </br>
     </br>
 <% end %>
+</div>
