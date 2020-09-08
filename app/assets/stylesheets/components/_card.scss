@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   flex-grow: 1;
-  grid-gap: 10px;
+  grid-gap: 20px;
   padding-right: 10px;
 }
 .card-inner p {
@@ -133,7 +133,7 @@
 }
 
 .default-card-body:hover::after {
-    pointer-events: none;
+  pointer-events: none;
   content: "";
   position: absolute;
   bottom: 0;

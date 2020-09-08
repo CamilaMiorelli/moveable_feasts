@@ -13,11 +13,17 @@
   </head>
 
   <body>
+    <% if !(params[:controller] == "feasts" && params[:action] == "index") %>
+  <div class= "container">
+    <% end %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>
 
     <%= render 'shared/footer' %>
+    <% if !(params[:controller] == "feasts" && params[:action] == "index") %>
+  </div>
+    <% end %>
   </body>
 </html>

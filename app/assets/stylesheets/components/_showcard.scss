@@ -26,7 +26,8 @@
   position: relative;
 }
 
-.showcard-and-map::before {
+.showcard-and-map:hover::before {
+  pointer-events: none;
   content: "";
   position: absolute;
   bottom: 0;
