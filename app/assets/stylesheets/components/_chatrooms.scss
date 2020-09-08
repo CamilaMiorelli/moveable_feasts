@@ -1,0 +1,26 @@
+.chatrooms-index {
+  display: flex;
+  max-width: 960px;
+  justify-content: space-evenly;
+  margin: 0 auto;
+}
+
+.choose-chat {
+  border: 1px solid #c87d41;
+  border-radius: 5px;
+  margin: 25px;
+  padding: 60px;
+  text-align: center;
+}
+
+.choose-title {
+ text-align: center;
+}
+
+.choose-btn {
+ margin: 20px;
+}
+
+.btn-chat {
+  margin: 10px;
+}

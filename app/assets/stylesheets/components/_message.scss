@@ -22,6 +22,14 @@
   align-items: flex-start;
 }
 
+.message-wrapper.right .message-container {
+  background-color: #878787;
+}
+
+.message-wrapper.left .message-container {
+  background-color: #494949;
+}
+
 .message-container {
   border-radius: 20px;
   max-width: 400px;

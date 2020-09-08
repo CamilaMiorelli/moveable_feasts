@@ -63,6 +63,7 @@ class FeastsController < ApplicationController
 
   def create
     @feast = Feast.new(strong_feasts_params)
+    @feast.price_cents = @feast.price_cents * 100
     @feast.user = current_user
     @feast.save
     if @feast.save
@@ -86,7 +87,7 @@ class FeastsController < ApplicationController
   private
 
   def strong_feasts_params
-    params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price, :address, :start_at, :end_at, :photo)
+    params.require(:feast).permit(:title, :description, :meal_type, :guest_limit, :price_cents, :address, :start_at, :end_at, :photo)
 
   end
 end
