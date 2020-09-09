@@ -1,6 +1,12 @@
 <div>
   <div class = "indexcard-search">
-    <%= render 'shared/search', class: "index-container" %>
+  <%= form_tag feasts_path, :class => "index-search banner-search d-flex", method: :get do %>
+            <%= text_field_tag :query, params[:query], class: " feast-search", placeholder: "What kind of feast would you like to attend?" %>
+            <%= datetime_field_tag :date_query, params[:date_query], class: " feast-time" %>
+            <%= text_field_tag :location, params[:location], placeholder: "10km radius around location", class: " feast-time" %>
+            <%= button_tag "", class: "button-search" %>
+<% end %>
+    <%#= render 'shared/search', class: "index-container" %>
     </div>
 </div>
 <div class="default-index-container">
