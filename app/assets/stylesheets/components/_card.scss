@@ -5,6 +5,14 @@
   grid-gap: 20px;
   padding-right: 10px;
 }
+
+.default-cards-bookings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-grow: 1;
+  grid-gap: 20px;
+}
+
 .card-inner p {
   margin: 0;
 }
@@ -93,6 +101,10 @@
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin: 10px;
+}
+
+.default-card-fullname {
+  font-weight: bold;
 }
 
 .default-card-address:before {
