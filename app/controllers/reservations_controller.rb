@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
 
   def create
     @feast = Feast.find(params[:feast_id])
-    if @feast.reservations.to_a.sum(&:number_of_guests) < @feast.guest_limit
+    if @feast.reservations.to_a.sum(&:number_of_guests) + params[:reservation][:number_of_guests].to_i < @feast.guest_limit
       @reservation = Reservation.new(reservation_params)
       @reservation.feast = @feast
       @reservation.user = current_user
@@ -20,31 +20,31 @@ class ReservationsController < ApplicationController
       @reservation.state = "Pending"
       @reservation.save
 
-       session = Stripe::Checkout::Session.create(
-          payment_method_types: ['card'],
-          line_items: [{
-            name: @feast.title,
-            amount: @feast.price_cents * params[:reservation][:number_of_guests].to_i,
-            currency: 'eur',
-            quantity: 1
-          }],
-          success_url: root_url,
-          cancel_url: root_url
-        )
-       @reservation.update(checkout_session_id: session.id)
-       flash.notice = "Worked"
-       redirect_to new_feast_reservation_payment_path(@feast, @reservation)
+      #  session = Stripe::Checkout::Session.create(
+      #     payment_method_types: ['card'],
+      #     line_items: [{
+      #       name: @feast.title,
+      #       amount: @feast.price_cents * params[:reservation][:number_of_guests].to_i,
+      #       currency: 'eur',
+      #       quantity: 1
+      #     }],
+      #     success_url: root_url,
+      #     cancel_url: root_url
+      #   )
+      #  @reservation.update(checkout_session_id: session.id)
+      #  flash.notice = "Worked"
+      #  redirect_to new_feast_reservation_payment_path(@feast, @reservation)
 
-      if @reservation.update
+      if @reservation.save
         redirect_to feast_path(@feast, @reservation)
         flash.notice = "Your reservation has been sent to the host."
       else
         render "feasts/show"
-        flash.alert = "Your reservation did not save."
+        flash.notice = "Your reservation did not save."
       end
     else
       render "feasts/show"
-      flash.alert = "The feast is full"
+      flash.notice = "The feast is full"
     end
   end
 

@@ -51,6 +51,12 @@ class FeastsController < ApplicationController
     # else
     #   @feasts = Feast.all
     end
+
+    if params[:location].present?
+      # raise
+      @feasts = @feasts.near(params[:location], 10)
+    end
+
     @markers = @feasts.geocoded.map do |feast|
       {
         lat: feast.latitude,

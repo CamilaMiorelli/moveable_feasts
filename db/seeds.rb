@@ -46,10 +46,10 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       description: "I would like to invite everyone to my traditional indian feast. I am from the punjabi region of India and I would like to make a curry and have some friends over.",
       user: user,
       meal_type: "Vegetarian",
-      guest_limit: 8,
+      guest_limit: 3,
       price_cents: 2000,
       available: true,
-      address: "Reguliersgracht 17, Amsterdam",
+      address: "baars 14, Oostzaan",
       start_at: DateTime.new(2019, 12, 3, 18, 00, 0))
       p indian
     indian.end_at = indian.start_at + 2.hours
@@ -61,7 +61,7 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       description: "I will be making lechon asado for new friends!",
       user: user,
       meal_type: "Meat dish",
-      guest_limit: 8,
+      guest_limit: 3,
       price_cents: 2000,
       available: true,
       address: "Pannekoekstraat 110, Rotterdam",
@@ -75,10 +75,10 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       description: "Hey everyone, I'm not so great at cooking, but I would love to host some tapas at my house, i'll order a mixture of vegetarian and meat dishes,",
       user: user,
       meal_type: "Ominivore's Delight",
-      guest_limit: 15,
+      guest_limit: 3,
       price_cents: 1000,
       available: true,
-      address: "Ijsbaanpad 8, Amsterdam",
+      address: "laan 1, schiedam",
       start_at: DateTime.new(2019, 3, 6, 16, 0, 0))
     casual.end_at = casual.start_at + 2.hours
     casual.save!
@@ -89,10 +89,10 @@ ADDRESSES=["Reguliersgracht 17, Amsterdam", "Prinsengracht 10, Amsterdam", "Pann
       description: "Looking to connect with people interested in design and vegan food, I would like to host a picnic in the park, everyone can bring some vegan snacks.",
       user: user,
       meal_type: "vegan",
-      guest_limit: 25,
+      guest_limit: 3,
       price_cents: 1000,
       available: true,
-      address: "Vondel Park, Amsterdam",
+      address: "gedempte gracht 1, Zaandam",
       start_at: DateTime.new(2020, 1, 10, 7, 30, 0))
     picnic.end_at = picnic.start_at + 2.hours
     picnic.save!
