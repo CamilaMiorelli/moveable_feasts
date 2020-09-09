@@ -1,21 +1,38 @@
-<div class="login-container">
-<h2>Create your Feast!</h2>
+<div class="container">
+<div class = "default-newfeast-container">
+<h2 class = "newfeast-title">Create your Feast!</h2>
 <%= form_for @feast do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.label :meal_type %>
-    <%= f.text_field :meal_type %>
-    <%= f.label :guest_limit %>
-    <%= f.text_field :guest_limit %>
-    <%= f.label :price_cents, "Price" %>
-    <%= f.number_field :price_cents %>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-    <%= f.datetime_field :start_at, as: :datetime %>
-    <%= f.datetime_field :end_at, as: :datetime %>
-    <%= f.file_field :photo, as: :file %>
-    <%= f.button :button, class: "bttn bttn1" %>
+  <div>
+  <h3>Event title: <%= f.text_field :title, class: "newfeast-item" %>
+    </h3>
+  </div>
+  <div>
+  <h5>Description: <%= f.text_field :description, class: "newfeast-item" %></h5>
+  </div>
+  <div>
+  <h5>Meal type: <%= f.text_field :meal_type, class: "newfeast-item" %></h5>
+  </div>
+  <div>
+  <h5>No. of guests: <%= f.text_field :guest_limit, class: "newfeast-item" %></h5>
+  </div>
+  <div>
+  <h5>Price requested in Euros: <%= f.number_field :price_cents, class: "newfeast-item" %></h5>
+  </div>
+  <div>
+  <h5>Event Address: <%= f.text_field :address, class: "newfeast-item" %></h5>
+  </div>
+  <div>
+  <h5>Start time: <%= f.datetime_field :start_at, as: :datetime, class: "newfeast-item" %></h5>
+  </div>
+  <div>
+  <h5>End time<%= f.datetime_field :end_at, as: :datetime, class: "newfeast-item" %></h5>
+  </div>
+  <div>
+  <h5><%= f.file_field :photo, as: :file, class: "newfeast-item" %></h5>
+  </div>
+  <div>
+    <%= f.button :button, class: "bttn bttn1 bttn-wide" %>
+  </div>
 <% end %>
+</div>
 </div>
