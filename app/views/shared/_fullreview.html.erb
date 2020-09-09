@@ -1,14 +1,48 @@
 <div class="reviews">
-<% @user.reviews.each do |review| %>
-    Reviewer:
-    <%= link_to "#{review.reviewer.full_name}", user_path(review.reviewer, @user) %>
-    </br>
-    Host Rating: <%= review.rating %>
-    </br>
-    <strong><%= review.review_title %></strong>
-    </br>
-    <%= review.review_description %>
-    </br>
-    </br>
-<% end %>
+  <% @user.reviews.each do |review| %>
+
+  <div class="review-card">
+
+    <div class="review-item review-rating">
+      <!-- Host Rating: <%= review.rating %> -->
+      <div class="stars">
+        <% review.rating.times do %>
+        <i class="fas fa-stroopwafel orange"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+        <i class="fas fa-stroopwafel gray"></i></i>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="review-item review-title">
+      <strong><%= review.review_title %></strong>
+    </div>
+
+    <% if review.review_description.length > 30 %>
+      <div class="review-item">
+        <span class="review-desc">
+          <%= truncate(review.review_description, length: 30) %>
+          <a data-toggle="collapse" href="#collapseExample-<%= review.id %>" role="button" aria-expanded="false" aria-controls="collapseExample" class="read">
+            Read more...
+          </a>
+        </span>
+        <div class="collapse" id="collapseExample-<%= review.id %>">
+          <div class="card card-body review">
+            <%= review.review_description %>
+          </div>
+        </div>
+        <div class="review-item review-name">
+          <%= link_to "#{review.reviewer.full_name}", user_path(review.reviewer, @user) %>
+        </div>
+      </div>
+    <% else %>
+      <%= review.review_description %>
+      <div class="review-item review-name">
+        <%= link_to "#{review.reviewer.full_name}", user_path(review.reviewer, @user) %>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
 </div>
