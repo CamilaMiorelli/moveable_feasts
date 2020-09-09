@@ -1,0 +1,48 @@
+.reviews {
+  margin: 0;
+  width: 600px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  // margin: 10px;
+}
+
+.review-card {
+  width: 100%;
+  position: relative;
+  margin: 0 0 20px 0;
+  background-color: #dcd4ca;
+  padding: 20px;
+}
+
+.review-name a {
+    color: #c77d42;
+    background-color: transparent;
+    margin: 10px 0;
+    text-decoration: underline;
+    font-size: 14px;
+    position: absolute;
+    top: 5px;
+    right: 16px;
+}
+
+a.read  {
+   display: block;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #c77d42;
+}
+
+.review-item {
+  flex-wrap: wrap;
+
+}
+
+.card.card-body.review {
+  word-break: break-all;
+  background-color: #EAE1D7;
+  border-radius: 10px;
+}
+
