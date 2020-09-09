@@ -19,9 +19,9 @@ class ApplicationController < ActionController::Base
 
 # app/controllers/application_controller.rb
 
-# def default_url_options
-#   { host: ENV["www.moveablefeasts.club"] || "localhost:3000" }
-# end
+def default_url_options
+  { host: ENV["DOMAIN"] || "localhost:3000" }
+end
 
   def after_sign_in_path_for(resource_or_scope)
     stored_location_for(resource_or_scope) || super
