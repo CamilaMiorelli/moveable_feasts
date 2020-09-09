@@ -11,7 +11,8 @@
 }
 
 .lighter-footer h5 {
-  margin: 0;
+  margin-left: 20px;
+  margin-top: 10px;
   color: #F1EBE4;
 }
 
@@ -22,7 +23,7 @@
 }
 
 .footer-google {
-  width: 150px;
+  width: 125px;
 }
 
 .footer-apple {
@@ -34,28 +35,28 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 }
 .right-side-footer ul li{
   list-style: none;
-  font-size: 15px;
+  font-size: 12px;
   color: #F1EBE4;
 }
 .right-side-footer ul {
   display: flex;
   justify-content: space-around;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .copy-right {
-  font-size: 15px;
+  font-size: 10px;
   color: #F1EBE4;
 }
 .left-side-footer a {
   font-family: 'Rubik Mono One', cursive;
   text-decoration: none;
   color: #F1EBE4;
-  font-size: 30px;
+  font-size: 25px;
   &:hover {
 
   }
@@ -68,7 +69,7 @@
 }
 
 .footer-first-letter {
-  font-size: 50px;
+  font-size: 40px;
   color: #c87d41;
 }
 
