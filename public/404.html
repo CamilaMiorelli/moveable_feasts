@@ -4,25 +4,57 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    body {
-      min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Helvetica;
-    }
+  *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #c87d41;
+}
+
+.image{
+  width: 100%;
+  max-width: 300px;
+  border: solid 10px #fff;
+  border-radius: 15px;
+
+  animation: up-down 1.4s infinite ease-in-out alternate;
+}
+
+@keyframes up-down{
+  from{
+    transform: translatey(0px);
+  }
+  to{
+    transform: translatey(-20px);
+  }
+}
+
+h1 {
+  color: white;
+  align-text: center;
+  font-family: "Rubik One Mono"
+}
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div>
+    <h1>404 Page Not Found</h1>
+    <img class="image" src="https://i.pinimg.com/originals/44/02/92/4402920ac98cde014c028605a1c97dc3.jpg" alt="">
   </div>
 </body>
 </html>
