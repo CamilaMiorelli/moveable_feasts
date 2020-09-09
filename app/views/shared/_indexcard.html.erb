@@ -19,10 +19,10 @@
     </div>
     </div>
     <%= link_to "available now", feast_path(feast), class: "bttn1 bttn" %>
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, class: "avatar index-avatar #{feast.photo.attached? ? 'yes' : 'no-img-avatar'}" %>
+    <% if feast.user.photo.attached? %>
+      <%= cl_image_tag feast.user.photo.key, class: "avatar index-avatar #{feast.photo.attached? ? 'yes' : 'no-img-avatar'}" %>
     <% else %>
-      <%= current_user.full_name %>
+      <%= feast.user.full_name %>
     <% end %>
   </div>
   </div>
