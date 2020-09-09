@@ -1,4 +1,3 @@
-# app/helpers/meta_tags_helper.rb
 
 module MetaTagsHelper
     def meta_title
