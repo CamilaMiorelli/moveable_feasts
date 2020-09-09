@@ -7,7 +7,7 @@
 <!-- app/views/offers/show.html.erb -->
 <% content_for :meta_title, "#{@feast.title} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @feast.description %>
-<% content_for :meta_image, cl_image_path(@feast.photo.path) %>
+<% content_for :meta_image, cl_image_path(@feast.photo.key) %>
 
 <div class = "show-container">
 <% if @feast.photo.attached? %>
