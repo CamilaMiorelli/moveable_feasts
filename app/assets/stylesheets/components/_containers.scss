@@ -5,6 +5,11 @@
   grid-template-columns: 350px 1fr;
 }
 
+.default-bookings-container {
+  display: flex;
+  padding: 10px 0;
+}
+
 .container {
   padding: 0;
 }

@@ -1,4 +1,5 @@
-<div class="userprofile">
+<div class="container">
+  <div class="user-profile">
   <div class="user-info">
     <%= render "shared/user_avatar" %>
     <br>
@@ -8,10 +9,9 @@
     <%= @user.bio %>
   </div>
 
-  <div class="reviews">
+  <div>
     <%= render "shared/fullreview" %>
-
-    <a class="bttn-dark bttn2" data-toggle="modal" data-target="#review-popup">
+    <a class="bttn-dark bttn2 bttn-wide" data-toggle="modal" data-target="#review-popup">
       Write a Review
     </a>
   </div>
@@ -30,19 +30,20 @@
       </div>
   <%= form_for [@user, Review.new] do |f| %>
       <div class="modal-body">
-        <%= f.select :rating, 1..10 %>
+        <%= f.select :rating, 1..5 %>
         </br>
         <h3>Review Title</h3>
         <%= f.text_field :review_title, placeholder: "for example: AWESOME PERSON, or PIECE OF SHITE" %>
         </br>
         <h3>Review</h3>
-        <%= f.text_field :review_description, placeholder: "Give the user some positive feedback, like HE FUCKING BURNS EVERYTHING!" %>
+        <%= f.text_field :review_description, placeholder: "Give the user some positive feedback, like HE FUCKING BURNS EVERYTHING!", class: "review-desc" %>
       </div>
         <div class="modal-footer">
         <%= f.submit "Submit Review" %>
         </div>
       <% end %>
     </div>
+  </div>
   </div>
 </div>
 

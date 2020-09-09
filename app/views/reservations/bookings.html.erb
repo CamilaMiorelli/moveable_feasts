@@ -1,43 +1,67 @@
-<div class="login-container">
-  <div class="row reservation-status-card">
+<div class="container">
+<div class="default-bookings-container">
+  <div class = "default-cards-bookings">
   <% @reservations.each do |reservation| %>
-    <div class="col-10">
-      <h1 class="p-3">Current status of your event bookings
-      </h1>
-        <%= reservation.feast.title %>
-        </br>
-        <%= reservation.user.full_name %>
-        </br>
-        <%= reservation.feast.description %>
-        </br>
-        <%= reservation.feast.meal_type %>
-        </br>
-        <%= reservation.feast.price_cents %>
-        </br>
-        <%= reservation.feast.address %>
-        </br>
-        <%= reservation.feast.start_at.strftime("%b %e, %l:%M %p") %>
-        </br>
-        <%= reservation.feast.end_at.strftime("%b %e, %l:%M %p") %>
-        </br>
-        <%= reservation.feast.available %>
-        </br>
-        Number of guests: <%= reservation.number_of_guests %>
-
-
-      <div class="status">
-      <% if params[:action] == "incoming_bookings" %>
-        <% unless reservation.status == "Accepted" || reservation.status == "Declined" %>
-           <%= button_to "Accept", accept_feast_reservation_path(reservation.feast, reservation), method: :put %>
-           <%= button_to "Decline", decline_feast_reservation_path(reservation.feast, reservation), method: :put %>
-         <% else %>
+  <div class="default-card-index">
+    <div class="default-card-body">
+      <div class="card-inner">
+        <% if reservation.feast.photo.present? %>
+          <%= cl_image_tag reservation.feast.photo.key, crop: :fill, class: "index-img" %>
+        <% end %>
+        <div class = "default-card-title">
+          <h4><%= reservation.feast.title %></h4>
+        </div>
+        <div class = "card-paragraph">
+        <div class = "default-card-fullname">
+          <%= reservation.user.full_name %>
+        </div>
+        <div class = "default-bookings-desc">
+          <%= reservation.feast.description %>
+        </div>
+        <div class = "default-card-mealtype">
+          <%= reservation.feast.meal_type %>
+        </div>
+        <div class = "default-card-price">
+          <%= humanized_money_with_symbol reservation.feast.price_cents %>
+        </div>
+        <div class="default-card-address">
+          <%= reservation.feast.address %>
+        </div>
+        <div class="default-card-time">
+          <%= reservation.feast.start_at.strftime("%b %e, %l:%M %p") %>
+        </div>
+        <div class="default-card-time">
+          <%= reservation.feast.end_at.strftime("%b %e, %l:%M %p") %>
+        </div>
+        <div class = "default-card-guests">
+        <%#= reservation.feast.available %>
+        <%= reservation.number_of_guests %>
+        <div>
+        <br>
+          <% if params[:action] == "incoming_bookings" %>
+            <% unless reservation.status == "Accepted" || reservation.status == "Declined" %>
+            <%= link_to "Accept", accept_feast_reservation_path(reservation.feast, reservation), method: :put, class: "bttn bttn1" %>
+            <%= link_to "Decline", decline_feast_reservation_path(reservation.feast, reservation), method: :put, class: "bttn-dark bttn2" %>
+            <% else %>
+            <div class="bookings-status">
             <%= reservation.status %>
-         <% end %>
-      <% else %>
-        <%= reservation.status %>
-      <% end %>
+            </div>
+            <% end %>
+          <% else %>
+            <%= reservation.status %>
+          <% end %>
+          </div>
+          <% if reservation.feast.user.photo.attached? %>
+      <%= cl_image_tag reservation.feast.user.photo.key, class: "avatar avatar-bookings #{reservation.feast.photo.attached? ? 'yes' : 'no-img-avatar'}" %>
+    <% else %>
+      <%= image_tag 'https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599638681/cf22479151a6f9e1aef98f3ff1f15e40_xunu6p.png', class: "avatar index-avatar" %>
+    <% end %>
+        </div>
+        </div>
       </div>
-      </div>
-      <% end %>
+    </div>
   </div>
-</div>
+  <% end %>
+  </div>
+  </div>
+  </div>

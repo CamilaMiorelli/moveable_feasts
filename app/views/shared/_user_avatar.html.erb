@@ -1,5 +1,5 @@
 <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key %>
+    <%= cl_image_tag @user.photo.key, class: 'user-picture' %>
 <% else %>
     No picture to be displayed
 <% end %>
