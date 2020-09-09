@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   flex-grow: 1;
-  grid-gap: 10px;
+  grid-gap: 20px;
   padding-right: 10px;
 }
 .card-inner p {
@@ -17,12 +17,6 @@
   border-radius: 10px 0 180px 0;
   position: relative;
   background-color: #F1EBE4;
-}
-
-.index-avatar {
-  position: absolute;
-  width: 75px;
-  right: 15px;
 }
 
 .card-inner {
@@ -41,6 +35,12 @@
   height: 200px;
   margin-bottom: 5px;
   border-radius:  10px 0 0 0 ;
+}
+
+.index-avatar {
+  position: absolute;
+  width: 75px;
+  right: 15px;
 }
 
 .default-card-title h4{
@@ -80,8 +80,8 @@
 .no-img-price {
   position: absolute;
   top: 80px;
-
 }
+
 .card-paragraph {
   text-align: left;
   padding-left: 15px;
@@ -133,7 +133,7 @@
 }
 
 .default-card-body:hover::after {
-    pointer-events: none;
+  pointer-events: none;
   content: "";
   position: absolute;
   bottom: 0;

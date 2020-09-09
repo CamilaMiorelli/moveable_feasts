@@ -5,9 +5,13 @@
   grid-template-columns: 350px 1fr;
 }
 
+.container {
+  padding: 0;
+}
+
 .show-container {
-  max-width: 800px;
-  margin: 40px auto;
+  width: 100%;
+  margin: 20px auto;
   border: 2px solid transparent;
   border-radius: 5px;
   background-color: #F1EBE4;
