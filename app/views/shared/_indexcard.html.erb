@@ -22,7 +22,7 @@
     <% if feast.user.photo.attached? %>
       <%= cl_image_tag feast.user.photo.key, class: "avatar index-avatar #{feast.photo.attached? ? 'yes' : 'no-img-avatar'}" %>
     <% else %>
-      <%= feast.user.full_name %>
+      <%= image_tag 'https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599638681/cf22479151a6f9e1aef98f3ff1f15e40_xunu6p.png', class: "avatar index-avatar" %>
     <% end %>
   </div>
   </div>
