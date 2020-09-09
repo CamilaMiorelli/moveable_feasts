@@ -15,14 +15,14 @@
         <div class = "default-card-fullname">
           <%= reservation.user.full_name %>
         </div>
-        <div class = "default-card-desc">
+        <div class = "default-bookings-desc">
           <%= reservation.feast.description %>
         </div>
         <div class = "default-card-mealtype">
           <%= reservation.feast.meal_type %>
         </div>
         <div class = "default-card-price">
-          <%= reservation.feast.price_cents %>
+          <%= humanized_money_with_symbol reservation.feast.price_cents %>
         </div>
         <div class="default-card-address">
           <%= reservation.feast.address %>
@@ -35,19 +35,27 @@
         </div>
         <div class = "default-card-guests">
         <%#= reservation.feast.available %>
-        Number of guests: <%= reservation.number_of_guests %>
-        <div class="status">
+        <%= reservation.number_of_guests %>
+        <div>
+        <br>
           <% if params[:action] == "incoming_bookings" %>
             <% unless reservation.status == "Accepted" || reservation.status == "Declined" %>
-            <%= button_to "Accept", accept_feast_reservation_path(reservation.feast, reservation), method: :put %>
-            <%= button_to "Decline", decline_feast_reservation_path(reservation.feast, reservation), method: :put %>
+            <%= link_to "Accept", accept_feast_reservation_path(reservation.feast, reservation), method: :put, class: "bttn bttn1" %>
+            <%= link_to "Decline", decline_feast_reservation_path(reservation.feast, reservation), method: :put, class: "bttn-dark bttn2" %>
             <% else %>
+            <div class="bookings-status">
             <%= reservation.status %>
+            </div>
             <% end %>
           <% else %>
             <%= reservation.status %>
           <% end %>
           </div>
+          <% if reservation.feast.user.photo.attached? %>
+      <%= cl_image_tag reservation.feast.user.photo.key, class: "avatar avatar-bookings #{reservation.feast.photo.attached? ? 'yes' : 'no-img-avatar'}" %>
+    <% else %>
+      <%= image_tag 'https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599638681/cf22479151a6f9e1aef98f3ff1f15e40_xunu6p.png', class: "avatar index-avatar" %>
+    <% end %>
         </div>
         </div>
       </div>
