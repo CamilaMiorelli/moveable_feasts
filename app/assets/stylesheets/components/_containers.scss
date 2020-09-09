@@ -5,6 +5,14 @@
   grid-template-columns: 350px 1fr;
 }
 
+.default-newfeast-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .default-bookings-container {
   display: flex;
   padding: 10px 0;
