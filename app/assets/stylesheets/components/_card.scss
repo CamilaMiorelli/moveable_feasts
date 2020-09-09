@@ -5,6 +5,14 @@
   grid-gap: 20px;
   padding-right: 10px;
 }
+
+.default-cards-bookings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-grow: 1;
+  grid-gap: 20px;
+}
+
 .card-inner p {
   margin: 0;
 }
@@ -43,11 +51,37 @@
   right: 15px;
 }
 
+.avatar-bookings {
+  position: absolute;
+  width: 75px;
+  right: 15px;
+  top: 160px;
+}
+
+.bookings-status {
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  background: #50514F;
+  overflow: initial;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  font-weight: bold;
+  color: #EAE1D7;
+  width: 25%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .default-card-title h4{
   display: flex;
   padding: 10px 20px 0 20px;
-  justify-content: space-between;
+  justify-content: flex-start;
   font-weight: bold;
+}
+
+.default-bookings-desc {
+  padding: 10px;
 }
 
 .default-card-mealtype:before {
@@ -93,6 +127,11 @@
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin: 10px;
+}
+
+.default-card-fullname {
+  font-weight: bold;
+  padding-left: 10px;
 }
 
 .default-card-address:before {

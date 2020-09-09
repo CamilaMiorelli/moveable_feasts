@@ -1,6 +1,6 @@
 <div class="container">
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-    <h1><%= @chatroom.feast.title %> Chat</h1>
+    <h1 class = "chatroom-head"><%= @chatroom.feast.title %> Chat</h1>
       <div class="chatroom-info">
         <span><strong class="bold">Address: </strong><%= @feast.address %></span>
         <span><strong class="bold">We will start exactly at: </strong><%= @feast.start_at.strftime("%I:%M%p") %></span>
