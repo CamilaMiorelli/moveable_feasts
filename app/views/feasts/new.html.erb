@@ -1,15 +1,21 @@
 <div class="login-container">
 <h2>Create your Feast!</h2>
-<%= simple_form_for @feast do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :meal_type %>
-    <%= f.input :guest_limit %>
-    <%= f.input :price_cents %>
-    <%= f.input :address %>
-    <%= f.input :start_at, as: :datetime %>
-    <%= f.input :end_at, as: :datetime %>
-    <%= f.input :photo, as: :file %>
+<%= form_for @feast do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <%= f.label :meal_type %>
+    <%= f.text_field :meal_type %>
+    <%= f.label :guest_limit %>
+    <%= f.text_field :guest_limit %>
+    <%= f.label :price_cents, "Price" %>
+    <%= f.number_field :price_cents %>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+    <%= f.datetime_field :start_at, as: :datetime %>
+    <%= f.datetime_field :end_at, as: :datetime %>
+    <%= f.file_field :photo, as: :file %>
     <%= f.button :button, class: "bttn bttn1" %>
 <% end %>
 </div>
