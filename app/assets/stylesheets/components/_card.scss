@@ -34,7 +34,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .index-img {
@@ -43,19 +43,6 @@
   height: 200px;
   margin-bottom: 5px;
   border-radius:  10px 0 0 0 ;
-}
-
-.index-avatar {
-  position: absolute;
-  width: 75px;
-  right: 15px;
-}
-
-.avatar-bookings {
-  position: absolute;
-  width: 75px;
-  right: 15px;
-  top: 160px;
 }
 
 .bookings-status {
@@ -72,6 +59,7 @@
   text-align: center;
   text-transform: uppercase;
 }
+
 
 .default-card-title h4{
   display: flex;
@@ -95,12 +83,6 @@
   display: flex;
 }
 
-.no-img-avatar {
-  position: absolute;
-  right: 20px;
-  top: 10px;
-  width: 75px;
-}
 .default-card-price {
   position: absolute;
   font-weight: bolder;
@@ -119,7 +101,7 @@
 .card-paragraph {
   text-align: left;
   padding-left: 15px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .default-card-guests:before {

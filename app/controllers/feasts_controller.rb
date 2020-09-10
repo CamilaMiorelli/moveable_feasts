@@ -59,9 +59,6 @@ class FeastsController < ApplicationController
     if params[:distance].present? && params[:location].present?
       @new_distance = params[:distance].to_i
       @feasts = @feasts.near(params[:location], @new_distance)
-      # else
-      #   redirect_to feasts_path
-      # end
     end
 
     if cookies[:lat_lng].present?
