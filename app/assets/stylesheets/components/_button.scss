@@ -13,6 +13,24 @@
   font-weight: bold;
 }
 
+.status-show {
+  display: flex;
+  align-items: center;
+  background: #50514F;
+  color: #EAE1D7;
+  padding: 10px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  // margin: 10px;
+  transition: 0.1s;
+  position: relative;
+  overflow: initial;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .bttn-wide {
   display: block;
   width: 100%;
@@ -22,6 +40,7 @@
 
 .bttn-dark {
   background: #50514F;
+  color: #EAE1D7;
   padding: 10px 20px;
   font-size: 20px;
   cursor: pointer;
