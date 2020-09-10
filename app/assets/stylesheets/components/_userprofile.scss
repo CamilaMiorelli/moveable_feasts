@@ -4,6 +4,26 @@
   margin: 50px 0;
 }
 
+.socials ul li {
+  list-style: none;
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
+.socials ul li a {
+  font-size: 25px;
+  color: #c87d41;
+}
+
+.socials ul {
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 0;
+  margin: 0;
+}
 
 .user-info {
 // border: 3px solid #c87d41;
