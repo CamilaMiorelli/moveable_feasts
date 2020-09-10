@@ -15,21 +15,21 @@ puts 'Creating a fake user...'
 file1 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599472451/Avatar_Camila_2020_m3x0hw.jpg')
 file2 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599727520/david_elltq6.jpg')
 file3 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599727534/essam_tidfkh.jpg')
-#file4 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599725235/yfqyymuittgv492itx57stujtp0b.jpg')
+file4 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599742870/48361006_10156660642505353_3091004636270690304_n_vyleaz.jpg')
 file5 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599657413/ilx6auwz8w693f3luc7lkz23g7n8.jpg')
 file6 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599731022/anna_1_iyvmtj.jpg')
 
 user1 = User.create(first_name: "Camila", last_name: "Miorelli", email: "cami@gmail.com", password: 123456, bio:"Hey! I just moved to Amsterdam from Miami, I am looking to make new friends and try some delicious food. My interests include museums, cooking, rollerskating, and watching films. I am vegetarian and i'm looking to connect with other veggie friends.", gender: "female", admin: false)
 user2 = User.create(first_name: "David", last_name: "Lusztig", email: "david@gmail.com", password: 123456, bio:"Hello. I have been living in Rotterdam for the past year. Usually I love going out to new restaurants and trying interesting foods, but I want to get into cooking again. I would love to host some dinners at my house and share my cooking hobby with all of you. I am a vegetarian so I make a variety of veggie meals.", gender: "male", admin: true)
 user3 = User.create(first_name: "Essam", last_name: "Dawood", email: "essam@gmail.com", password: 123456, bio:"What's Up? I have been living in The Netherlands for a while, but I am hoping to meet some new people. I just switched jobs recently and having been looking for new ways to connect. I love burgers! I like to cook AND eat. Let's see what's out there!", gender: "male", admin: false)
-#user4 = User.create(first_name: "Hans", last_name: "Preeker", email: "hans@gmail.com", password: 123456, bio:"Hoi! Mijn name is Hans. Haha, I meant my name is Hans for all you non-Dutchies ; ). I used to be a professional chef, but nowadays i'm a coder. I still love to cook and challenge myself with new dishes and guests. I hope to invite people into my home and introduce them to some Dutch hospitality.", gender: "male", admin: false)
+user4 = User.create(first_name: "Hans", last_name: "Preeker", email: "hans@gmail.com", password: 123456, bio:"Hoi! Mijn name is Hans. Haha, I meant my name is Hans for all you non-Dutchies ; ). I used to be a professional chef, but nowadays i'm a coder. I still love to cook and challenge myself with new dishes and guests. I hope to invite people into my home and introduce them to some Dutch hospitality.", gender: "male", admin: false)
 user5 = User.create(first_name: "Maria", last_name: "Diaz", email: "maria@gmail.com", password: 789101, bio:"Hola! I would love to cook some Cuban food with people in Amsterdam and share my story and food with all of you.", gender: "female", admin: false)
 user6 = User.create(first_name: "Anna", last_name: "Bergman", email: "anna@gmail.com", password: 789101, bio:"I love to eat, but I don't love to cook. I still love to host thought and I would like to meet new and interesting people. I am a dancer and an artist. Let's chat!", gender: "female", admin: false)
 
 user1.photo.attach(io: file1, filename: 'camila.jpg', content_type: 'image/jpg')
 user2.photo.attach(io: file2, filename: 'camila.jpg', content_type: 'image/jpg')
 user3.photo.attach(io: file3, filename: 'camila.jpg', content_type: 'image/jpg')
-#user4.photo.attach(io: file4, filename: 'camila.jpg', content_type: 'image/jpg')
+user4.photo.attach(io: file4, filename: 'camila.jpg', content_type: 'image/jpg')
 user5.photo.attach(io: file5, filename: 'camila.jpg', content_type: 'image/jpg')
 user6.photo.attach(io: file6, filename: 'camila.jpg', content_type: 'image/jpg')
 
@@ -116,7 +116,7 @@ user6.photo.attach(io: file6, filename: 'camila.jpg', content_type: 'image/jpg')
       title: "Thursday Night Patisserie",
       description: "I am an amateur pastry chef, I love to practice my skills with small cakes and madelienes, I hope you have a sweet tooth!",
       meal_type: "Dessert",
-      user: user5,
+      user: user4,
       guest_limit: 3,
       price_cents: 1200,
       available: true,
@@ -130,7 +130,7 @@ user6.photo.attach(io: file6, filename: 'camila.jpg', content_type: 'image/jpg')
       title: "Authentic Dutch Dinner",
       description: "I will making a classic Dutch meal. As the weather gets colder I want to make some erwtensoep, which is a pea soup with pork and I will be baking my own bread. I know you will all love it.",
       meal_type: "Dinner/Non-vegetarian",
-      user: user5,
+      user: user4,
       guest_limit: 5,
       price_cents: 1000,
       available: true,
@@ -156,7 +156,7 @@ user6.photo.attach(io: file6, filename: 'camila.jpg', content_type: 'image/jpg')
   dutch.photo.attach(io: file6, filename: 'feast.jpg', content_type: 'image/jpg')
 
   feast = [veggie, cuban, casual, picnic, french, dutch]
-  user = [user1, user2, user3, user5, user6]
+  user = [user1, user2, user3, user4, user5, user6]
 
   5.times do
   Reservation.create(number_of_guests: rand(0..3), status: "Pending", user: user.sample, feast: feast.sample)
