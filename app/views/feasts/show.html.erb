@@ -17,8 +17,14 @@
 <div class = "show-card-titles">
 <div class= "show-card-title">
 <%= @feast.title %>
-</br>
-<%= link_to "#{@feast.user.full_name}", user_path(@feast.user) %>
+<%= link_to  user_path(@feast.user), target: "_blank" do %>
+<% if @feast.user.photo.attached? %>
+      <%= cl_image_tag @feast.user.photo.key, class: "avatar show-avatar #{@feast.photo.attached? ? 'yes' : 'no'}" %>
+    <% else %>
+      <%= image_tag 'https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599638681/cf22479151a6f9e1aef98f3ff1f15e40_xunu6p.png', class: "avatar index-avatar" %>
+    <% end %>
+
+<% end %>
 </div>
 <% if current_user.present? %>
 
