@@ -13,7 +13,7 @@
         </div>
         <div class = "card-paragraph">
         <div class = "default-card-fullname">
-          <%= reservation.user.full_name %>
+          <%# reservation.user.full_name %>
         </div>
         <div class = "default-bookings-desc">
           <%= reservation.feast.description %>
@@ -22,7 +22,7 @@
           <%= reservation.feast.meal_type %>
         </div>
         <div class = "default-card-price">
-          <%= humanized_money_with_symbol reservation.feast.price_cents %>
+          <%= humanized_money_with_symbol reservation.feast.price %>
         </div>
         <div class="default-card-address">
           <%= reservation.feast.address %>
