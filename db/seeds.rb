@@ -158,9 +158,9 @@ user6.photo.attach(io: file6, filename: 'camila.jpg', content_type: 'image/jpg')
   feast = [veggie, cuban, casual, picnic, french, dutch]
   user = [user1, user2, user3, user4, user5, user6]
 
-  5.times do
-  Reservation.create(number_of_guests: rand(0..3), status: "Pending", user: user.sample, feast: feast.sample)
-  end
+  # 5.times do
+  # Reservation.create(number_of_guests: rand(0..3), status: "Pending", user: user.sample, feast: feast.sample)
+  # end
 
   # feasts.each_with_index do |feast, top_index|
   #   5.times.with_index do |index|
