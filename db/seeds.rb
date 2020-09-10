@@ -59,7 +59,7 @@ user6.photo.attach(io: file6, filename: 'camila.jpg', content_type: 'image/jpg')
     veggie = Feast.new(
       title: "Vegetarian Gnocci Dinner",
       description: "I am looking to make my favorite dish for dinner, homemade Gnocci with pesto and greens. This meal is vegetarian approved and delicious! Please bring some wine.",
-      user: user2,
+      user: user4,
       meal_type: "Vegetarian",
       guest_limit: 4,
       price_cents: 1200,
@@ -130,7 +130,7 @@ user6.photo.attach(io: file6, filename: 'camila.jpg', content_type: 'image/jpg')
       title: "Authentic Dutch Dinner",
       description: "I will making a classic Dutch meal. As the weather gets colder I want to make some erwtensoep, which is a pea soup with pork and I will be baking my own bread. I know you will all love it.",
       meal_type: "Dinner/Non-vegetarian",
-      user: user4,
+      user: user2,
       guest_limit: 5,
       price_cents: 1000,
       available: true,
