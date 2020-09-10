@@ -38,6 +38,11 @@
         <%= reservation.number_of_guests %>
         <div>
         <br>
+        <span class = "reserve-fullname hosted-name">
+          <%= link_to user_path(reservation.user) do %>
+          <%= reservation.user.full_name %>
+        </span>
+        <% end %>
           <% if params[:action] == "incoming_bookings" %>
             <% unless reservation.status == "Accepted" || reservation.status == "Declined" %>
             <%= link_to "Accept", accept_feast_reservation_path(reservation.feast, reservation), method: :put, class: "bttn bttn1" %>
