@@ -15,7 +15,7 @@ puts 'Creating a fake user...'
 file1 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599472451/Avatar_Camila_2020_m3x0hw.jpg')
 file2 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599727520/david_elltq6.jpg')
 file3 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599727534/essam_tidfkh.jpg')
-file4 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599725235/yfqyymuittgv492itx57stujtp0b.jpg')
+file4 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599742870/48361006_10156660642505353_3091004636270690304_n_vyleaz.jpg')
 file5 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599657413/ilx6auwz8w693f3luc7lkz23g7n8.jpg')
 file6 = URI.open('https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599731022/anna_1_iyvmtj.jpg')
 
