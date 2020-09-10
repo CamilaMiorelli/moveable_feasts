@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :feasts
   has_many :reservations
   has_many :events, through: :reservations, source: :feast, class_name: "Feast"
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :messages, dependent: :destroy
   validates :first_name, length: { minimum: 1 }
   validates :last_name, length: { minimum: 1 }
