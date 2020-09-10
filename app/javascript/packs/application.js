@@ -27,11 +27,13 @@ import "bootstrap";
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { initChatroomCable } from '../channels/chatroom_channel';
+import { initLocationFinder } from '../plugins/init_location_finder';
 
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initChatroomCable();
+  initLocationFinder();
 })
 
 // Internal imports, e.g:
