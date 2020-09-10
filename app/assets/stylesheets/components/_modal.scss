@@ -1,0 +1,28 @@
+#review-rating {
+  border-radius: 10px;
+    padding: 5px;
+    border: 1px solid orange;
+    margin: 10px;
+}
+
+.modal-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: rgb( 234, 225, 215);
+  background-clip: padding-box;
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
+  /* outline: 0; */
+}
+
+.modal {
+  border-radius: 25px;
+  border: none;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+}
