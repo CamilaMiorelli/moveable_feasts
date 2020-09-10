@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :feasts
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   has_many :events, through: :reservations, source: :feast, class_name: "Feast"
   has_many :reviews, dependent: :destroy
   has_many :messages, dependent: :destroy
