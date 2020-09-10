@@ -3,8 +3,10 @@
 <div class = "reserve-name">
   <div>
   <span class = "reserve-fullname">
-  <%= reservation.user.first_name %> <%= reservation.user.last_name %>
+  <%= link_to user_path(reservation.user) do %>
+  <%= reservation.user.full_name %>
   </span>
+  <% end %>
   </div>
   <div>
   <%= reservation.comment %>
