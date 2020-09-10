@@ -56,13 +56,16 @@ class FeastsController < ApplicationController
       @feasts = @feasts.near(params[:location], 10)
     end
 
-    if params[:distance].present?
-      if params[:location].present?
-        @new_distance = params[:distance].to_i
-        @feasts = @feasts.near(params[:location], @new_distance)
-      else
-        redirect_to feasts_path
-      end
+    if params[:distance].present? && params[:location].present?
+      @new_distance = params[:distance].to_i
+      @feasts = @feasts.near(params[:location], @new_distance)
+    end
+
+    if cookies[:lat_lng].present?
+      @lat_lng = cookies[:lat_lng].split("|")
+      @current_address = Geocoder.address(@lat_lng)
+    else
+      
     end
 
     @markers = @feasts.geocoded.map do |feast|
