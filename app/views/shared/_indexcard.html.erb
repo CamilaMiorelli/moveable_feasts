@@ -6,6 +6,7 @@
     <% if feast.photo.present? %>
       <%= cl_image_tag feast.photo.key, width: 650, height: 360, crop: :fill, class: "index-img" %>
     <% end %>
+    <div class = "card-text-body">
     <div class = "default-card-title">
     <h4><%= feast.title %></h4>
     </div>
@@ -24,6 +25,7 @@
     <% else %>
       <%= image_tag 'https://res.cloudinary.com/dpqkzfvuf/image/upload/v1599638681/cf22479151a6f9e1aef98f3ff1f15e40_xunu6p.png', class: "avatar index-avatar" %>
     <% end %>
+    </div>
   </div>
   </div>
 </div>
