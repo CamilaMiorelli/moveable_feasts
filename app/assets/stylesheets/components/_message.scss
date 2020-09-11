@@ -2,34 +2,6 @@
   display: flex;
 }
 
-.message-wrapper.right {
-  justify-content: flex-end;
-}
-
-.message-wrapper.left {
-  justify-content: flex-start;
-}
-
-.message-wrapper.right .message-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.message-wrapper.left .message-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.message-wrapper.right .message-container {
-  background-color: #878787;
-}
-
-.message-wrapper.left .message-container {
-  background-color: #494949;
-}
-
 .message-container {
   border-radius: 20px;
   max-width: 400px;
@@ -78,4 +50,22 @@
 
 .author-info {
   margin: 0 15px;
+}
+
+
+
+
+
+.message-wrapper .message-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.message-wrapper .message-container {
+  background-color: #878787;
+}
+
+    .message-wrapper {
+  justify-content: flex-end;
 }
