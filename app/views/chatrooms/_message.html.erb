@@ -1,4 +1,4 @@
-<div class="message-wrapper <%= message.user == current_user ? 'left' : 'right' %>">
+<div class="message-wrapper <%= "user-#{current_user.id}" %>">
   <div class="message-card">
     <div class="message-container" id="message-<%= message.id %>">
       <p class="message-content"><%= message.content %></p>
